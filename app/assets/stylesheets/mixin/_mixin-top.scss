@@ -1,0 +1,53 @@
+@mixin set_feature_list(){
+  &__features{
+    padding: 0px  80px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-around;
+
+
+    &__reason{
+      width: 300px;
+      position: relative;
+
+
+      &__image{
+
+        &__number{
+          width: 60px;
+          height: 60px;
+          font-size: 26px;
+          font-weight: bold;
+          color: #FFFFFF;
+          background-color: #00CED1;
+          line-height: 60px;
+          position: absolute;
+          top: 0px;
+          border-radius: 3px;
+        }
+
+        &__tag{
+
+        }
+      }
+
+      &__title{
+        font-weight: bold;
+        font-size: 24px;
+        margin: 30px 0px;
+
+        & span{
+         color: 	#00CED1;
+        }
+      }
+
+      &__subtitle{
+        font-size: 18px;
+        display: inline-block;
+        text-align: left;
+      }
+    }
+  }
+}
+
+
