@@ -1,0 +1,204 @@
+.header
+  .header__upper
+    .header__upper__logo
+      = image_tag "header/logo.png", size:"140x40", class:"header__upper__logo__image"
+    .header__upper__form 
+      = form_for '#',  html: { class:"header__upper__form__field"}   do |form|
+        .header__upper__form__field__input
+          = form.text_field :keyword,placeholder:"キーワードから探す", class: 'header__upper__form__field__input__content'
+        .header__upper__form__field__search
+          %label
+            .header__upper__form__field__search__box
+              = image_tag "header/icon-search.png", size:"20x20",class:"header__upper__form__field__search__box__icon"
+            = form.submit '%', class:"header__upper__form__field__search__btn"
+
+         
+      
+
+.main
+  .main__visual
+    = image_tag "main/visual/bg-mainVisual-pict_pc.jpg", class:"main__visual__image"
+
+    .main__visual__content
+      .main__visual__content__title
+        人生を変えるフリマアプリ
+      %p.main__visual__content__subtitle
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .main__visual__content__icons
+        = image_tag "main/visual/apple_logo.svg", size:"180x60", class:"main__visual__content__icons__apple"
+        = image_tag "main/visual/google-play-badge.png", size:"230x90", class:"main__visual__content__icons__goo"
+
+        
+  .main__service
+    .main__service__text
+      FURIMAが選ばれる3つの理由 
+      .main__service__text__underline
+        .main__service__text__underline__content
+
+    %ul.main__service__features
+      %li.main__service__features__reason
+        .main__service__features__reason__image
+          .main__service__features__reason__image__number 1
+          = image_tag "main/service/reason-01.jpg", size:"300x300", class:".main__service__features__reason__image__tag"
+        .main__service__features__reason__title
+          %span３分
+          ですぐに出品
+        .main__service__features__reason__subtitle 
+          スマホで入力するだけで簡単に出品できる！
+
+      %li.main__service__features__reason
+        .main__service__features__reason__image
+          .main__service__features__reason__image__number 2
+          = image_tag "main/service/reason-02.jpg", size:"300x300", class:".main__service__features__reason__image__tag"
+        .main__service__features__reason__title
+          %spanシンプル
+          で使いやすい
+        .main__service__features__reason__subtitle
+          めんどくさい入力は必要なく、検索も購入もスムーズ！ 
+
+      %li.main__service__features__reason
+        .main__service__features__reason__image 
+          .main__service__features__reason__image__number 3    
+          = image_tag "main/service/reason-03.jpg", size:"300x300", class:".main__service__features__reason__image__tag"
+        .main__service__features__reason__title
+          手数料
+          %span業界最安
+        .main__service__features__reason__subtitle
+          最大3%でお得に出品&購入！
+
+
+  .main__topshare
+    = image_tag "main/topshare/phone-pic.jpg", class:"main__topshare__image"
+    .main__topshare__content
+      .main__topshare__content__title
+        会員数日本一位
+      %p.main__topshare__content__subtitle
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .main__topshare__content__icons
+        = image_tag "main/visual/apple_logo.svg", size:"180x60", class:"main__topshare__content__icons__apple"
+        = image_tag "main/visual/google-play-badge.png", size:"230x90", class:"main__topshare__content__icons__goo"
+
+
+  .main__function
+    .main__function__text
+      FURIMAの特徴
+      .main__function__text__underline
+        .main__function__text__underline__content
+
+    %ul.main__function__features
+      %li.main__function__features__reason
+        .main__function__features__reason__image
+          = image_tag "main/service/icon-01.png", size:"220x330", class:".main__function__features__reason__image__tag"
+        .main__function__features__reason__title
+          簡単に売り買いできる
+        .main__function__features__reason__subtitle 
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+
+      %li.main__function__features__reason
+        .main__function__features__reason__image
+          = image_tag "main/service/icon-03.png", size:"220x330", class:".main__function__features__reason__image__tag"
+        .main__function__features__reason__title
+          売上金は即日振込みに対応
+        .main__function__features__reason__subtitle
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+
+      %li.main__function__features__reason
+        .main__function__features__reason__image 
+          = image_tag "main/service/icon-04.png", size:"220x330", class:".main__service__features__reason__image__tag"
+        .main__function__features__reason__title
+          様々な支払いに対応
+        .main__function__features__reason__subtitle
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+
+  .main__pickup
+    .main__pickup__categories
+      .main__pickup__categories__title
+        ピックアップカテゴリー
+      .main__pickup__categories__new-items
+        = link_to "新規登録商品", '#', class:'main__pickup__categories__new-items--link'
+      %ul.main__pickup__categories__products
+        %li.main__pickup__categories__products__item
+          puroduct1
+        %li.main__pickup__categories__products__item
+          puroduct2
+        %li.main__pickup__categories__products__item
+          puroduct3
+        %li.main__pickup__categories__products__item
+          puroduct4 
+          
+    .main__pickup__brand
+      .main__pickup__brand__title
+        ピックアップブランド
+      .main__pickup__brand__new-items
+        = link_to "アーカイバ", '#', class:'main__pickup__brand__new-items--link'
+      %ul.main__pickup__brand__products
+        %li.main__pickup__brand__products__item
+          puroduct1
+        %li.main__pickup__brand__products__item
+          puroduct2
+        %li.main__pickup__brand__products__item
+          puroduct3
+        %li.main__pickup__brand__products__item
+          puroduct4   
+
+
+.footer
+  .footer__download
+    = image_tag "footer/download/footer-pict.jpg", class:"footer__download__image"
+
+    .footer__download__content
+      .footer__download__content__title
+        誰でもかんたん、人生を変えるフリマアプリ
+      %p.footer__download__content__subtitle
+        今すぐ無料ダウンロード！
+      .footer__download__content__icons
+        = image_tag "main/visual/apple_logo.svg", size:"180x60", class:"footer__download__content__icons__apple"
+        = image_tag "main/visual/google-play-badge.png", size:"230x90", class:"footer__download__content__icons__goo"
+
+  .footer__reference
+    .footer__reference__contents
+      .footer__reference__contents__about
+        .footer__reference__contents__about__title
+          FURIMAについて
+        %ul
+          %li
+            = link_to "会社概要（運営会社）", '#', class: 'footer__reference__contents__about--link'
+          %li
+            = link_to "プライバシーポリシー", '#', class: 'footer__reference__contents__about--link'
+          %li
+            = link_to "FURIMA利用規約", '#', class: 'footer__reference__contents__about--link'
+          %li
+            = link_to "ポイントに関する特約", '#', class: 'footer__reference__contents__about--link'
+
+      .footer__reference__contents__lists
+        .footer__reference__contents__lists__title
+          FURIMAを見る
+        %ul
+          %li
+            = link_to "カテゴリ一覧", '#', class: 'footer__reference__contents__lists--link'
+          %li
+            = link_to "ブランド一覧", '#', class: 'footer__reference__contents__lists--link'
+            
+      .footer__reference__contents__help
+        .footer__reference__contents__help__title
+          ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to "FURIMAガイド", '#', class: 'footer__reference__contents__help--link'      
+          %li
+            = link_to "FURIMAロゴ利用ガイドライン", '#', class: 'footer__reference__contents__help--link' 
+          %li
+            = link_to "お知らせ", '#', class: 'footer__reference__contents__help--link'    
+
+    .footer__reference__logo
+      .footer__reference__logo--wrap
+        .footer__reference__logo__icon
+          = image_tag "footer/reference/logo-white.png", size:"160x50", class:"footer__reference__logo__icon__image"
+        @ FURIMA
