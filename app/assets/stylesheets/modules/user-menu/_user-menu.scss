@@ -1,7 +1,10 @@
+.active{
+  display: block !important;
+}
 
-.non-selected{
-  border-top: solid 2px #DDDDDD !important;
-  background-color: #DDDDDD;
+.selected{
+  background-color: #ffffff !important;
+  border-top: solid 2px red;
 }
 
 .user-menu{
@@ -53,9 +56,10 @@
       margin-left: 40px;
       background-color: #ffffff;
 
-      &__mypage{
-        // display: none;
+      &__mypage, &__notice, &__todolist, &__exhibition, &__purchase{
+        display: none;
 
+        // マイページ用
         &__user{
           height: 200px;
           background-color: blueviolet;
@@ -64,12 +68,31 @@
           line-height: 200px;
         }  
            
+        &__title{
+          height: 80px;
+          line-height: 80px;
+          font-weight: bold;
+          margin-left: 10px;
+        }
+
         &--tab{
           @include set_tab_menu();
         }
 
         &__messages{
           @include set_message();
+        }
+      }
+
+      &__favorite, &__draft{
+        display: none;
+
+        &__title{
+          height: 60px;
+          font-size: 22px;
+          line-height: 60px;
+          text-align: center;
+          border-bottom: solid 1px $border-color;
         }
       }
     }

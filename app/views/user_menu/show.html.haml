@@ -1,0 +1,205 @@
+= render 'templates/search-header'
+
+.user-menu
+  .user-menu__level
+    test
+
+  .user-menu__main
+
+    .user-menu__main__list
+      %ul.user-menu__main__list__mypage
+        %li
+          = render "list", code:101 ,name:"マイページ"
+        %li
+          = render "list", code:102 ,name:"お知らせ"
+        %li
+          = render "list", code:103 ,name:"やることリスト"
+        %li
+          = render "list", code:104 ,name:"いいね！一覧"
+        %li
+          -# = render "list", code:105 ,name:"出品する"
+          = link_to "#", class:"user-menu__main__list__mypage--link" do
+            出品する      
+            .user-menu__main__list__mypage__arrow
+              ＞
+        %li
+          = render "list", code:106 ,name:"下書き一覧"
+        %li
+          = render "list", code:107 ,name:"出品した商品-出品中"
+        %li
+          = render "list", code:108 ,name:"出品した商品-取引中"
+        %li
+          = render "list", code:109 ,name:"出品した商品-売却済み"
+        %li
+          = render "list", code:110 ,name:"購入した商品-取引中"
+        %li
+          = render "list", code:111 ,name:"購入した商品-過去の取引"
+        %li
+          = render "list", code:112 ,name:"ニュース一覧"
+        %li
+          = render "list", code:113 ,name:"評価一覧"
+        %li
+          = render "list", code:114 ,name:"ガイド"
+        %li
+          = render "list", code:115 ,name:"お問い合わせ"
+
+      %ul.user-menu__main__list__furipay
+        フリペイ
+        %li
+          = render "list", code:201 ,name:"売り上げ・振込申請"
+        %li
+          = render "list", code:202 ,name:"ポイント"
+
+      %ul.user-menu__main__list__setting
+        設定
+        %li
+          = render "list", code:301 ,name:"プロフィール"
+        %li
+          = render "list", code:302 ,name:"発送元・お届け先住所変更"
+        %li
+          = render "list", code:303 ,name:"支払い方法"
+        %li
+          = render "list", code:304 ,name:"メール/パスワード"
+        %li
+          = render "list", code:305 ,name:"本人情報"
+        %li
+          = render "list", code:306 ,name:"電話番号の確認"
+        %li
+          = render "list", code:307 ,name:"ログアウト"
+
+    .user-menu__main__contents
+
+      //マイページ
+      -# - if(code == 101) クリックされたボックスに応じてコンテンツを表示
+      .user-menu__main__contents__mypage
+        .user-menu__main__contents__mypage__user
+          .user-menu__main__contents__mypage__user__info
+            出品者
+
+        .user-menu__main__contents__mypage--tab 
+          .user-menu__main__contents__mypage--tab__li.selected
+            お知らせ
+          .user-menu__main__contents__mypage--tab__li
+            やることリスト
+        .user-menu__main__contents__mypage__messages
+          -# 後々メッセージ数に応じたコンテンツを表示
+          = render 'message', code:301 
+
+      //お知らせ
+      -# - if(code == 102) クリックされたボックスに応じてコンテンツを表示      
+      .user-menu__main__contents__notice
+        .user-menu__main__contents__notice--tab 
+          .user-menu__main__contents__notice--tab__li.selected
+            お知らせ
+          .user-menu__main__contents__notice--tab__li
+            やることリスト
+        .user-menu__main__contents__notice__messages
+          -# 後々メッセージ数に応じたコンテンツを表示
+          = render 'message', code:301 
+
+      //やることリスト
+      -# - if(code == 103) クリックされたボックスに応じてコンテンツを表示      
+      .user-menu__main__contents__todolist
+        .user-menu__main__contents__todolist--tab 
+          .user-menu__main__contents__todolist--tab__li
+            お知らせ
+          .user-menu__main__contents__todolist--tab__li.selected
+            やることリスト
+        .user-menu__main__contents__todolist__messages
+          -# 後々メッセージ数に応じたコンテンツを表示
+          = render 'message', code:301 
+
+      //いいね！一覧
+      -# - if(code == 104) クリックされたボックスに応じてコンテンツを表示      
+      .user-menu__main__contents__favorite
+        .user-menu__main__contents__favorite__title
+          いいね！一覧
+        .user-menu__main__contents__favorite__li
+          = render 'message', code:301 
+
+      //出品ページは直接ページへ遷移するため記述なし
+
+      //下書き一覧
+      -# - if(code == 106) クリックされたボックスに応じてコンテンツを表示      
+      .user-menu__main__contents__draft
+        .user-menu__main__contents__draft__title
+          下書き一覧
+        .user-menu__main__contents__draft_li
+          = render 'message', code:301  
+
+      //出品した商品-出品中
+      -# - if(code == 107) クリックされたボックスに応じてコンテンツを表示      
+      .user-menu__main__contents__exhibition
+        .user-menu__main__contents__exhibition__title
+          出品した商品
+        .user-menu__main__contents__exhibition--tab 
+          .user-menu__main__contents__exhibition--tab__li.selected
+            出品中
+          .user-menu__main__contents__exhibition--tab__li
+            取引中
+          .user-menu__main__contents__exhibition--tab__li
+            売却済み            
+        .user-menu__main__contents__exhibition__messages
+          -# 後々メッセージ数に応じたコンテンツを表示
+          = render 'message', code:301    
+
+      //出品した商品-取引中
+      -# - if(code == 108) クリックされたボックスに応じてコンテンツを表示      
+      .user-menu__main__contents__exhibition
+        .user-menu__main__contents__exhibition__title
+          出品した商品
+        .user-menu__main__contents__exhibition--tab 
+          .user-menu__main__contents__exhibition--tab__li
+            出品中
+          .user-menu__main__contents__exhibition--tab__li.selected
+            取引中
+          .user-menu__main__contents__exhibition--tab__li
+            売却済み            
+        .user-menu__main__contents__exhibition__messages
+          -# 後々メッセージ数に応じたコンテンツを表示
+          = render 'message', code:301
+
+      //出品した商品-売却済み
+      -# - if(code == 109) クリックされたボックスに応じてコンテンツを表示      
+      .user-menu__main__contents__exhibition
+        .user-menu__main__contents__exhibition__title
+          出品した商品
+        .user-menu__main__contents__exhibition--tab 
+          .user-menu__main__contents__exhibition--tab__li
+            出品中
+          .user-menu__main__contents__exhibition--tab__li
+            取引中
+          .user-menu__main__contents__exhibition--tab__li.selected
+            売却済み            
+        .user-menu__main__contents__exhibition__messages
+          -# 後々メッセージ数に応じたコンテンツを表示
+          = render 'message', code:301  
+
+      //購入した商品-取引中
+      -# - if(code == 110) クリックされたボックスに応じてコンテンツを表示      
+      .user-menu__main__contents__purchase
+        .user-menu__main__contents__purchase__title
+          購入した商品
+        .user-menu__main__contents__purchase--tab 
+          .user-menu__main__contents__purchase--tab__li.selected
+            取引中
+          .user-menu__main__contents__purchase--tab__li
+            過去の取引
+        .user-menu__main__contents__purchase__messages
+          -# 後々メッセージ数に応じたコンテンツを表示
+          = render 'message', code:301     
+      
+      //購入した商品-取引中
+      -# - if(code == 111) クリックされたボックスに応じてコンテンツを表示      
+      .user-menu__main__contents__purchase.active
+        .user-menu__main__contents__purchase__title
+          購入した商品
+        .user-menu__main__contents__purchase--tab 
+          .user-menu__main__contents__purchase--tab__li
+            取引中
+          .user-menu__main__contents__purchase--tab__li.selected
+            過去の取引
+        .user-menu__main__contents__purchase__messages
+          -# 後々メッセージ数に応じたコンテンツを表示
+          = render 'message', code:301    
+
