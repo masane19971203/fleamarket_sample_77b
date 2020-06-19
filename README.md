@@ -76,6 +76,7 @@
 |name|string|null: false|
 ### Association
 - has_many :products
+- has_many :adresses
 ## shipping_datesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -132,12 +133,6 @@
 - has_many :pruducts
 - has_many :cards
 - has_many :comments
-## areasテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :adresses
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
