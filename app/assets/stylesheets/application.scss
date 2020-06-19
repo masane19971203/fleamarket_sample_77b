@@ -1,4 +1,14 @@
+//全htmlに共通のscss
 @import "reset";
+
+//configフォルダのscss
 @import "config/toppage/config-top";
+@import "config/user-menu/config-user-menu";
+
+//mixinフォルダのscss
 @import "mixin/toppage/mixin-top";
+
+//modulesフォルダのscss
 @import "modules/toppage/top";
+@import "modules/toppage/search-header";
+@import "modules/user-menu/user-menu";
