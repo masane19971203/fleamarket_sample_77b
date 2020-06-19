@@ -6,7 +6,7 @@
 |text|text|null: false, index: true|
 |price|integer|null: false|
 |brand|string|index: true|
-|third_genres|references|foreign_key: true|
+|category|references|null: false, foreign_key: true|
 |size|references|foreign_key: true|
 |status|references|foreign_key: true|
 |postage|references|null: false, foreign_key: true|
@@ -28,29 +28,11 @@
 - has_many :users, through: :favorites
 - has_many :favorites
 - has_many :reports
-## first_genresテーブル
+## categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category|string|null: false, index: true|
+|name|string|null: false, index: true|
 ### Association
-- has_many :products
-- has_many :second_genres
-## second_genresテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false, index: true|
-|first_genre|references|null: false, foreign_key: true|
-### Association
-- belongs_to :first_genre
-- has_many :third_genres
-## third_genresテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false, index: true|
-|second_genre|references|null: false, foreign_key: true|
-|size|references|null: false, foreign_key: true|
-### Association
-- belongs_to :second_genre
 - has_many :products
 ## sizesテーブル
 |Column|Type|Options|
