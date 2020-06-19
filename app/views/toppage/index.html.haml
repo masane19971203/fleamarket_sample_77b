@@ -5,15 +5,24 @@
     .header__upper__form 
       = form_for '#',  html: { class:"header__upper__form__field"}   do |form|
         .header__upper__form__field__input
-          = form.text_field :keyword,placeholder:"キーワードから探す", class: 'header__upper__form__field__input__content'
+          = form.text_field :keyword,placeholder:" キーワードから探す", class: 'header__upper__form__field__input__content'
         .header__upper__form__field__search
           %label
             .header__upper__form__field__search__box
               = image_tag "header/icon-search.png", size:"20x20",class:"header__upper__form__field__search__box__icon"
             = form.submit '%', class:"header__upper__form__field__search__btn"
 
-         
-      
+  .header__lower
+    .header__lower__products
+      .header__lower__products__categories
+        カテゴリー
+      .header__lower__products__brand
+        ブランド
+    .header__lower__user
+      .header__lower__user__login
+        ログイン
+      .header__lower__user__registration
+        新規登録  
 
 .main
   .main__visual
