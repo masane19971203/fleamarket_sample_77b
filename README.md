@@ -78,8 +78,10 @@
 |------|----|-------|
 |text|text|null: false|
 |product|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
+- belongs_to :user
 ## favoriteテーブル
 |Column|Type|Options|
 |------|----|-------|
