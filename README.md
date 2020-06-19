@@ -123,7 +123,7 @@
 |last_name|string|null: false|
 |dob|date|null: false|
 |comment|text||
-|phonenumber|integer||
+|phonenumber|string||
 |sex|string||
 |icon|string||
 ### Association
