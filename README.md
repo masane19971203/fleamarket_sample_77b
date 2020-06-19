@@ -140,8 +140,8 @@
 ## purchaseテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|foreign_key: true|
-|status_id|references|foreign_key: true|
+|product|references|foreign_key: true|
+|status|references|foreign_key: true|
 ### Association
 - belongs_to :user
 - has_one :p-status
