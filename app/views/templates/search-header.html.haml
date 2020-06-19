@@ -3,7 +3,7 @@
     .header__upper__logo
       = image_tag "header/logo.png", size:"140x40", class:"header__upper__logo__image"
     .header__upper__form 
-      = form_for '#',  html: { class:"header__upper__form__field"}   do |form|
+      = form_with url:'#', class:"header__upper__form__field"   do |form|
         .header__upper__form__field__input
           = form.text_field :keyword,placeholder:" キーワードから探す", class: 'header__upper__form__field__input__content'
         .header__upper__form__field__search
