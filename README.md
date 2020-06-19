@@ -32,6 +32,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
+|ancestry|string|index: true|
 ### Association
 - has_many :products
 ## sizesテーブル
