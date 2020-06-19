@@ -10,6 +10,8 @@
   &__main{
     background-color: $border-color;
     padding: 40px 150px;
+    display: flex;
+
     &__list{
       width: 30%;
 
@@ -17,13 +19,17 @@
           margin-bottom: 20px;
           font-weight: bold;
 
+          &--link{
+            display: flex;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #000000  ;
+          }
           & li{
             background-color: #ffffff;
             font-size: 15px;
             font-weight: normal;;
             line-height: 45px;
-            display: flex;
-            justify-content: space-between;
             padding-left: 15px;
             border-bottom: solid 1px $border-color;
 
@@ -34,5 +40,24 @@
         }
       }
     }
+
+
+    &__contents{
+      width: 100%;
+      margin-left: 40px;
+      background-color: #ffffff;
+
+      &__mypage{
+        &__user{
+          height: 200px;
+          background-color: blueviolet;
+          display: flex;
+          justify-content: center;
+          line-height: 200px;
+        } 
+      }
+    }
   }
+
+
 }
