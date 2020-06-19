@@ -71,9 +71,16 @@
           .user-menu__main__contents__mypage__user__info
             出品者
 
-        .user-menu__main__contents__mypage__notice
+        .user-menu__main__contents__mypage--tab 
+          .user-menu__main__contents__mypage--tab__li
+            お知らせ
+          .user-menu__main__contents__mypage--tab__li.non-selected
+            やることリスト
+        .user-menu__main__contents__mypage__messages
+          = render 'message', code:301 
 
-        .user-menu__main__contents__mypage__todolist
-
+      //お知らせ
+      .user-menu__main__contents__notice
+        .user-menu__main__contents__mypage--tab 
 
 

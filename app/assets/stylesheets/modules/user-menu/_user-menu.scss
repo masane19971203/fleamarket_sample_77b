@@ -1,3 +1,9 @@
+
+.non-selected{
+  border-top: solid 2px #DDDDDD !important;
+  background-color: #DDDDDD;
+}
+
 .user-menu{
 
   &__level{
@@ -48,16 +54,24 @@
       background-color: #ffffff;
 
       &__mypage{
+        // display: none;
+
         &__user{
           height: 200px;
           background-color: blueviolet;
           display: flex;
           justify-content: center;
           line-height: 200px;
-        } 
+        }  
+           
+        &--tab{
+          @include set_tab_menu();
+        }
+
+        &__messages{
+          @include set_message();
+        }
       }
     }
   }
-
-
 }
