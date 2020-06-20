@@ -106,7 +106,7 @@
             .user-menu__main__contents__notice--tab__li.selected
               お知らせ
             .user-menu__main__contents__notice--tab__li
-              やることリスト
+              = link_to 'やることリスト', user_menu_path(id: "103", name: "やることリスト"), class: "user-menu__main__contents__notice--tab__li--link"
           .user-menu__main__contents__notice__messages
             -# 後々メッセージ数に応じたコンテンツを表示
             = render 'message', code:301 
@@ -116,7 +116,7 @@
         .user-menu__main__contents__todolist
           .user-menu__main__contents__todolist--tab 
             .user-menu__main__contents__todolist--tab__li
-              お知らせ
+              = link_to 'お知らせ', user_menu_path(id: "102", name: "お知らせ"), class: "user-menu__main__contents__notice--tab__li--link"
             .user-menu__main__contents__todolist--tab__li.selected
               やることリスト
           .user-menu__main__contents__todolist__messages
@@ -150,9 +150,9 @@
             .user-menu__main__contents__exhibition--tab__li.selected
               出品中
             .user-menu__main__contents__exhibition--tab__li
-              取引中
+              = link_to '取引中', user_menu_path(id: "108", name: "出品した商品-取引中"), class: "user-menu__main__contents__exhibition--tab__li--link"
             .user-menu__main__contents__exhibition--tab__li
-              売却済み            
+              = link_to '売却済み', user_menu_path(id: "109", name: "出品した商品-売却済み"), class: "user-menu__main__contents__exhibition--tab__li--link"                         
           .user-menu__main__contents__exhibition__messages
             -# 後々メッセージ数に応じたコンテンツを表示
             = render 'message', code:301    
@@ -164,11 +164,11 @@
             出品した商品
           .user-menu__main__contents__exhibition--tab 
             .user-menu__main__contents__exhibition--tab__li
-              出品中
+              = link_to '出品中', user_menu_path(id: "107", name: "出品した商品-出品中"), class: "user-menu__main__contents__exhibition--tab__li--link"
             .user-menu__main__contents__exhibition--tab__li.selected
               取引中
             .user-menu__main__contents__exhibition--tab__li
-              売却済み            
+              = link_to '売却済み', user_menu_path(id: "109", name: "出品した商品-売却済み"), class: "user-menu__main__contents__exhibition--tab__li--link"           
           .user-menu__main__contents__exhibition__messages
             -# 後々メッセージ数に応じたコンテンツを表示
             = render 'message', code:301
@@ -180,9 +180,9 @@
             出品した商品
           .user-menu__main__contents__exhibition--tab 
             .user-menu__main__contents__exhibition--tab__li
-              出品中
+              = link_to '出品中', user_menu_path(id: "107", name: "出品した商品-出品中"), class: "user-menu__main__contents__exhibition--tab__li--link"
             .user-menu__main__contents__exhibition--tab__li
-              取引中
+              = link_to '取引中', user_menu_path(id: "108", name: "出品した商品-取引中"), class: "user-menu__main__contents__exhibition--tab__li--link"
             .user-menu__main__contents__exhibition--tab__li.selected
               売却済み            
           .user-menu__main__contents__exhibition__messages
@@ -198,7 +198,7 @@
             .user-menu__main__contents__purchase--tab__li.selected
               取引中
             .user-menu__main__contents__purchase--tab__li
-              過去の取引
+              = link_to '過去の取引', user_menu_path(id: "111", name: "購入した商品-過去の取引"), class: "user-menu__main__contents__purchase--tab__li--link"
           .user-menu__main__contents__purchase__messages
             -# 後々メッセージ数に応じたコンテンツを表示
             = render 'message', code:301     
@@ -210,7 +210,7 @@
             購入した商品
           .user-menu__main__contents__purchase--tab 
             .user-menu__main__contents__purchase--tab__li
-              取引中
+              = link_to '取引中', user_menu_path(id: "110", name: "購入した商品-取引中"), class: "user-menu__main__contents__purchase--tab__li--link"
             .user-menu__main__contents__purchase--tab__li.selected
               過去の取引
           .user-menu__main__contents__purchase__messages

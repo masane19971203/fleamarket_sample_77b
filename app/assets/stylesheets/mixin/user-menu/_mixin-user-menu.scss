@@ -9,6 +9,11 @@
     text-align: center;
     // border-top: solid 2px #DDDDDD !important;
     background-color: #DDDDDD;
+
+    &--link{
+      color: #000000;
+      text-decoration: none;
+    }
   }
 
 }
