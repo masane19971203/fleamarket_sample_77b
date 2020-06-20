@@ -5,6 +5,7 @@ class UserMenuController < ApplicationController
 
   def show
     @code = params[:id]
+    @name = params[:name]
   end
 
 end

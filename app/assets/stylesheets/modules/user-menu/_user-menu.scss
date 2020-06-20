@@ -11,10 +11,18 @@
 
   &__level{
     width: 100%;
-    height: 100px;
+    height: 50px;
+    padding: 0px 30px;
+    line-height: 50px;
     border-top: solid 1px $border-color;
 
+    & a{
+      text-decoration: none;
+      color: #000000;
+    }
   }
+
+
 
   &__main{
     background-color: $border-color;
