@@ -1,3 +1,8 @@
+@mixin set_toppage_box($width,$height){
+  width: $width;
+  height: $height;
+}
+
 @mixin set_feature_list(){
   &__features{
     padding: 0px  80px;
@@ -5,11 +10,9 @@
     display: flex;
     justify-content: space-around;
 
-
     &__reason{
       width: 300px;
       position: relative;
-
 
       &__image{
 
@@ -47,6 +50,44 @@
         text-align: left;
       }
     }
+  }
+}
+
+@mixin set_features_title(){
+
+  &__text{ 
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  
+    &__underline{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+
+      &__content{
+        width: 70px;
+        height: 5px;
+        background-color: $top-color;
+      }
+    }
+  }
+}
+
+@mixin set_toppage_title($font_size){
+  font-size: $font_size;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 1px #C0C0C0;  
+}
+
+
+@mixin set_toppage_subtitle($font_size){
+  &__subtitle{
+    font-size: $font_size;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #C0C0C0;
+    line-height: 30px;
+    margin-bottom: 20px;
   }
 }
 
