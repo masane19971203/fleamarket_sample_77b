@@ -21,7 +21,7 @@
 - belings_to :size
 - belings_to :area
 - belings_to :shipping_date
-- belings_to :potage
+- belings_to :postage
 - belings_to :status
 - has_many :pictures
 - has_many :comments
@@ -47,7 +47,7 @@
 |text|string|null: false|
 ### Association
 - has_many :products
-## potagesテーブル
+## postagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|string|null: false|
