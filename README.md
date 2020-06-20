@@ -3,7 +3,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|text|text|null: false, index: true|
+|text|text|null: false|
 |price|integer|null: false|
 |brand|string|index: true|
 |category|references|null: false, foreign_key: true|
