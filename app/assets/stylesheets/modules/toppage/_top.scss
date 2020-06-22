@@ -18,9 +18,7 @@
 
     &__content{
       position: absolute;
-      top: 160px;
-      left: 60px;
-
+      @include set_position_box(160px,60px);
       
       &__title{
         @include set_toppage_title(60px);
@@ -47,8 +45,7 @@
     &__features{
       padding: 0px  80px;
       margin-bottom: 60px;
-      display: flex;
-      justify-content: space-around;
+      @include set_boxes_to_horizontal(space-around);
 
       &__reason{
         width: 300px;
@@ -66,10 +63,6 @@
             position: absolute;
             top: 0px;
             border-radius: 3px;
-          }
-
-          &__tag{
-
           }
         }
 
@@ -106,9 +99,7 @@
 
     &__content{
       position: absolute;
-      top: 80px;
-      left: 100px;
-
+      @include set_position_box(80px,100px);
 
       &__title{
         @include set_toppage_title(30px);        
@@ -133,13 +124,10 @@
 
     @include set_features_title();
 
-
-    // @include set_feature_list();
     &__features{
       padding: 0px  80px;
       margin-bottom: 60px;
-      display: flex;
-      justify-content: space-around;
+      @include set_boxes_to_horizontal(space-around);
 
       &__reason{
         width: 300px;
@@ -190,8 +178,7 @@
       }
 
       &__products{
-        display: flex;
-        justify-content: center;
+        @include set_boxes_to_horizontal(center);
       }
     }
   }
@@ -205,16 +192,14 @@
     text-align: center;
 
     &__image{
-      width: 100%;
-      height: 350px;
+      @include set_toppage_box(100%, 350px);
       vertical-align: bottom;
       object-fit: cover; /* この一行を追加するだけ！ */
     }
 
     &__content{
       position: absolute;
-      top: 80px;
-      left: 380px;
+      @include set_position_box(80px,380px);
 
       &__title{
         @include set_toppage_title(25px);
@@ -237,8 +222,7 @@
     padding: 60px 150px;
 
     &__contents{
-      display: flex;
-      justify-content: space-around;
+      @include set_boxes_to_horizontal(space-around);
 
       &__about, &__lists, &__help{
         text-align: center;
@@ -261,8 +245,7 @@
 
     }
     &__logo{
-      display: flex;
-      justify-content: center;
+      @include set_boxes_to_horizontal(center);
       font-size: 14px;
       text-align: center;
     }
