@@ -23,7 +23,6 @@
   }
 
 
-
   &__main{
     background-color: $border-color;
     padding: 40px 150px;
@@ -48,9 +47,7 @@
             font-weight: normal;;
             line-height: 45px;
             padding-left: 15px;
-            border-bottom: solid 1px $border-color;
-
-          
+            border-bottom: solid 1px $border-color;          
         }
         &__arrow{
           margin-right: 15px;
@@ -65,9 +62,8 @@
       background-color: #ffffff;
 
       &__mypage, &__notice, &__todolist, &__exhibition, &__purchase{
+
         // マイページ用
-
-
         &__user{
           height: 200px;
           background-color: blueviolet;
@@ -75,7 +71,7 @@
           justify-content: center;
           position: relative;
           
-
+          // マイページ用
           &__image{
             width:100%;
           }
@@ -87,8 +83,6 @@
             
           }
         }  
-
-
            
         &__title{
           height: 80px;
