@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :user_menu, only: [:index, :show]
 
+  resources :products, only: [:index, :show]
 end
