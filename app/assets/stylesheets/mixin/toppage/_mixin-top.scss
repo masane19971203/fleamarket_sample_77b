@@ -1,0 +1,57 @@
+//ボックス要素のサイズを定義する
+@mixin set_toppage_box($width,$height){
+  width: $width;
+  height: $height;
+}
+
+//ボックス要素を移動させる
+@mixin set_position_box($top,$left){
+  top: $top;
+  left: $left;
+}
+
+//水平方向に要素を並べる
+@mixin set_boxes_to_horizontal($option){
+  display: flex;
+  justify-content: $option;
+}
+
+//トップページの３要素からなるリストのタイトルを定義
+@mixin set_features_title(){
+
+  &__text{ 
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  
+    &__underline{
+      @include set_boxes_to_horizontal(center);
+      margin-top: 20px;
+
+      &__content{
+        @include set_toppage_box(70px,5px);
+        background-color: $top-color;
+      }
+    }
+  }
+}
+
+//画像上に表示するタイトルを定義
+@mixin set_toppage_title($font_size){
+  font-size: $font_size;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 1px #C0C0C0;  
+}
+
+//上記のサブタイトルを定義
+@mixin set_toppage_subtitle($font_size){
+  &__subtitle{
+    font-size: $font_size;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #C0C0C0;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+
