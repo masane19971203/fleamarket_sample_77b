@@ -7,11 +7,18 @@
     .detail__product__picts
       .detail__product__picts__main
         メインピクチャ
-      .detail__product__picts__sub
-        サブピクチャ1
-        サブピクチャ2
-        サブピクチャ3
-        サブピクチャ4
+      %ul.detail__product__picts__subs
+        %li.detail__product__picts__subs__li
+          サブピクチャ1
+        %li.detail__product__picts__subs__li
+          サブピクチャ2
+        %li.detail__product__picts__subs__li
+          サブピクチャ3
+        %li.detail__product__picts__subs__li
+          サブピクチャ4
+    .detail__product__price
+      ¥30,000
+      (税込)送料込み
 
 
 = render 'templates/download-footer'
