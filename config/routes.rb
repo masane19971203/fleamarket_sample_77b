@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'user_menu#index'
+
+  root 'toppage#index'
 
   resources :user_menu, only: [:show]
+
 end
