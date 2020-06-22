@@ -1,6 +1,7 @@
 .header
   = link_to "#/#", class: "header__Btn" do
-    furima
+    = image_tag "logo.png", size: "185x49", class:"header__btn__img"
+.contents
 .contents
   .content
   
@@ -60,5 +61,7 @@
       %li プライバシーポリシー
       %li フリマ利用規約
       %li 特定商取引に関する表記
-  
-  
+  .footer__logo
+    =image_tag "logo-white.png", size:"160x65", class:"footer__logo__img"
+  .footer__text
+    ©Furima, inc
