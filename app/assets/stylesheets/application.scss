@@ -1,4 +1,20 @@
+//全htmlに共通のscss
 @import "reset";
-@import "config/config-top";
-@import "mixin/mixin-top";
-@import "modules/top";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+//configフォルダのscss
+@import "config/toppage/config-top";
+@import "config/user-menu/config-user-menu";
+
+//mixinフォルダのscss
+@import "mixin/toppage/mixin-top";
+@import "mixin/user-menu/mixin-user-menu";
+
+//modulesフォルダのscss
+@import "modules/header/search-header";
+@import "modules/footer/download-footer";
+@import "modules/exhibition-btn";
+@import "modules/toppage/top";
+@import "modules/user-menu/user-menu";
+

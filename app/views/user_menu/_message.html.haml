@@ -1,0 +1,11 @@
+.user-menu__main__contents__mypage__messages__message
+  = link_to user_menu_path(code), class:"user-menu__main__contents__mypage__messages__message--link" do
+    .user-menu__main__contents__mypage__messages__message__left
+      .user-menu__main__contents__mypage__messages__message__left__logo
+        = image_tag "user_menu/logo_box.png",size: '40x40',class:"user-menu__main__contents__mypage__messages__message__left__logo__icon"
+      .user-menu__main__contents__mypage__messages__message__left__text
+        コンテンツメッセージ
+        .user-menu__main__contents__mypage__messages__message__left__text__time
+          2時間前    
+    .user-menu__main__contents__mypage__messages__message__arrow
+      ＞

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root 'items#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root 'toppage#index'
+
+  resources :user_menu, only: [:index, :show]
+
 end

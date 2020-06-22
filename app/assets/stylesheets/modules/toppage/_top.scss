@@ -1,0 +1,255 @@
+* {
+  box-sizing: border-box;
+}
+
+// トップページのメインコンテンツ
+.main{
+  width: 100%;
+  position: relative;
+
+  //1段目のスタイル設定
+  &__visual{
+    width: 100%;
+    position: relative;
+
+    &__image{
+      width: 100%;
+    }
+
+    &__content{
+      position: absolute;
+      @include set_position_box(160px,60px);
+      
+      &__title{
+        @include set_toppage_title(60px);
+      }
+
+      @include set_toppage_subtitle(18px);
+
+      &__icons{
+
+        &__apple{
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  //2段目のスタイル設定
+  &__service{
+    padding-top: 30px;
+    text-align: center;
+
+    @include set_features_title();
+
+    &__features{
+      padding: 0px  80px;
+      margin-bottom: 60px;
+      @include set_boxes_to_horizontal(space-around);
+
+      &__reason{
+        width: 300px;
+        position: relative;
+
+        &__image{
+
+          &__number{
+            @include set_toppage_box(60px,60px);
+            font-size: 26px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: $top-color;
+            line-height: 60px;
+            position: absolute;
+            top: 0px;
+            border-radius: 3px;
+          }
+        }
+
+        &__title{
+          font-weight: bold;
+          font-size: 24px;
+          margin: 30px 0px;
+
+          & span{
+            color: 	$top-color;
+          }
+        }
+
+        &__subtitle{
+          font-size: 18px;
+          display: inline-block;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  //3段目のスタイル設定
+  &__topshare{
+    text-align: left;
+    
+    width: 100%;
+    position: relative;
+
+    &__image{
+      @include set_toppage_box(100%,400px);
+      object-fit: cover; 
+    }
+
+    &__content{
+      position: absolute;
+      @include set_position_box(80px,100px);
+
+      &__title{
+        @include set_toppage_title(30px);        
+      }
+
+      @include set_toppage_subtitle(18px);
+
+      &__icons{
+
+        &__apple{
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+
+   //4段目のスタイル設定
+   &__function{
+    padding-top: 30px;
+    text-align: center;
+
+    @include set_features_title();
+
+    &__features{
+      padding: 0px  80px;
+      margin-bottom: 60px;
+      @include set_boxes_to_horizontal(space-around);
+
+      &__reason{
+        width: 300px;
+        position: relative;
+
+        &__title{
+          font-weight: bold;
+          font-size: 18px;
+          margin: 30px 0px 10px 0px;
+
+          & span{
+            color: 	$top-color;
+          }
+        }
+
+        &__subtitle{
+          font-size: 16px;
+          display: inline-block;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  // 5,6段目のスタイル設定
+  &__pickup{
+    background-color: #EEEEEE;
+    text-align: center;
+    padding-bottom: 80px;
+
+    &__categories, &__brand{
+      padding-top: 80px;
+
+      &__title{
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      &__new-items{
+        margin-bottom: 20px;
+
+        &--link{
+          font-size: 22px;
+          font-weight: bold;
+          text-decoration: none;
+          color: $top-color;
+        }
+      }
+
+      &__products{
+        @include set_boxes_to_horizontal(center);
+      }
+    }
+  }
+}
+
+// // フッター部分のスタイル定義
+// .footer{
+//   &__download{
+//     width: 100%;
+//     position: relative;
+//     text-align: center;
+
+//     &__image{
+//       @include set_toppage_box(100%, 350px);
+//       vertical-align: bottom;
+//       object-fit: cover;
+//     }
+
+//     &__content{
+//       position: absolute;
+//       @include set_position_box(80px,380px);
+
+//       &__title{
+//         @include set_toppage_title(25px);
+//         margin-bottom: 10px;
+//       }
+
+//       @include set_toppage_subtitle(35px);
+
+//       &__icons{
+//         &__apple{
+//           margin-bottom: 15px;
+//         }
+//       }
+//     }
+//   }
+
+//   &__reference{
+//     background-color: #222222;
+//     color: #FFFFFF;
+//     padding: 60px 150px;
+
+//     &__contents{
+//       @include set_boxes_to_horizontal(space-around);
+
+//       &__about, &__lists, &__help{
+//         text-align: center;
+
+//         &__title{
+//           font-size: 16px;
+//           font-weight: bold;
+//           margin-bottom: 20px;
+//         }
+
+//         & li{
+//           margin-bottom: 10px;
+//         }
+//         &--link{
+//           color: #FFFFFF;
+//           font-size: 12px;
+//           text-decoration: none;
+//         }
+//       }
+
+//     }
+//     &__logo{
+//       @include set_boxes_to_horizontal(center);
+//       font-size: 14px;
+//       text-align: center;
+//     }
+  
+//   }
+// }
+
