@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+    attributes:
+      user:
+        id: ID
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        name: お名前(全角)
+        kana_name: お名前カナ(全角)
+        birthday: 生年月日
+        password_confirmation: パスワード(確認)
+
+      admin:
+        id: ID
