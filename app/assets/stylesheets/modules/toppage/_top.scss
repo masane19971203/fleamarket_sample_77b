@@ -94,7 +94,7 @@
 
     &__image{
       @include set_toppage_box(100%,400px);
-      object-fit: cover; /* この一行を追加するだけ！ */
+      object-fit: cover; 
     }
 
     &__content{
@@ -184,7 +184,7 @@
   }
 }
 
-
+// フッター部分のスタイル定義
 .footer{
   &__download{
     width: 100%;
@@ -194,7 +194,7 @@
     &__image{
       @include set_toppage_box(100%, 350px);
       vertical-align: bottom;
-      object-fit: cover; /* この一行を追加するだけ！ */
+      object-fit: cover;
     }
 
     &__content{

@@ -1,3 +1,7 @@
 class ToppageController < ApplicationController
-  'toppage#index'
+  
+  def index
+
+  end
+  
 end
