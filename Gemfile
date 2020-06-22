@@ -73,3 +73,5 @@ group :production do
 end
 
 gem 'haml-rails'
+gem 'jquery-rails'
+gem 'font-awesome-sass'
