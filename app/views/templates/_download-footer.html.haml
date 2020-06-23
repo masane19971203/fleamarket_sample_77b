@@ -1,0 +1,54 @@
+
+.footer
+  .footer__download
+    = image_tag "footer/download/footer-pict.jpg", class:"footer__download__image"
+
+    .footer__download__content
+      .footer__download__content__title
+        誰でもかんたん、人生を変えるフリマアプリ
+      %p.footer__download__content__subtitle
+        今すぐ無料ダウンロード！
+      .footer__download__content__icons
+        = image_tag "main/visual/apple_logo.svg", size:"180x60", class:"footer__download__content__icons__apple"
+        = image_tag "main/visual/google-play-badge.png", size:"230x90", class:"footer__download__content__icons__goo"
+
+  .footer__reference
+    .footer__reference__contents
+      .footer__reference__contents__about
+        .footer__reference__contents__about__title
+          FURIMAについて
+        %ul
+          %li
+            = link_to "会社概要（運営会社）", '#', class: 'footer__reference__contents__about--link'
+          %li
+            = link_to "プライバシーポリシー", '#', class: 'footer__reference__contents__about--link'
+          %li
+            = link_to "FURIMA利用規約", '#', class: 'footer__reference__contents__about--link'
+          %li
+            = link_to "ポイントに関する特約", '#', class: 'footer__reference__contents__about--link'
+
+      .footer__reference__contents__lists
+        .footer__reference__contents__lists__title
+          FURIMAを見る
+        %ul
+          %li
+            = link_to "カテゴリ一覧", '#', class: 'footer__reference__contents__lists--link'
+          %li
+            = link_to "ブランド一覧", '#', class: 'footer__reference__contents__lists--link'
+            
+      .footer__reference__contents__help
+        .footer__reference__contents__help__title
+          ヘルプ＆ガイド
+        %ul
+          %li
+            = link_to "FURIMAガイド", '#', class: 'footer__reference__contents__help--link'      
+          %li
+            = link_to "FURIMAロゴ利用ガイドライン", '#', class: 'footer__reference__contents__help--link' 
+          %li
+            = link_to "お知らせ", '#', class: 'footer__reference__contents__help--link'    
+
+    .footer__reference__logo
+      .footer__reference__logo--wrap
+        .footer__reference__logo__icon
+          = image_tag "footer/reference/logo-white.png", size:"160x50", class:"footer__reference__logo__icon__image"
+        @ FURIMA

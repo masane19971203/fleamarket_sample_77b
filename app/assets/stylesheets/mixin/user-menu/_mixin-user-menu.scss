@@ -1,0 +1,60 @@
+@mixin set_tab_menu{
+
+  display: flex;
+
+  &__li{
+    width: 50%;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    // border-top: solid 2px #DDDDDD !important;
+    background-color: #DDDDDD;
+
+    &--link{
+      color: #000000;
+      text-decoration: none;
+    }
+  }
+
+}
+
+@mixin set_message{
+  &__message{
+    border-bottom: solid 1px $border-color;
+    padding: 10px;
+    
+
+    &--link{
+      display: flex;
+      justify-content: space-between;
+      text-decoration: none;
+      color: #000000;
+      height: 80px;
+      line-height: 80px;
+    }
+
+    &__left{
+      display: flex;
+
+
+      &__logo{
+        width: 50px;
+        height: 50px;
+        margin-top: 15px;
+        margin-right: 10px;
+        background-color: $border-color;
+        position: relative;
+
+        &__icon{
+          position: absolute;
+          top:5px;
+          left: 5px;
+        }
+      }
+
+      &__text{
+        line-height: 40px;
+      }
+    }
+  }
+}
