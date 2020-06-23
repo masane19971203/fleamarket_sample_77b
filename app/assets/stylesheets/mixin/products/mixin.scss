@@ -1,0 +1,32 @@
+//
+@mixin title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+@mixin require {
+  background-color: rgb(255, 2, 17);
+  color: white;
+  margin-left: 8px;
+  width: 32px;
+  padding: 0 4px 0;
+  font-size: 12px;
+  font-weight: bold;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 4px 4px 4px 4px;
+}
+
+@mixin textLine {
+  border: 1px solid $textColor;
+  border-radius: 4px 4px 4px 4px;
+  width: 100%;
+  height: 43px;
+  padding-left: 10px;
+}
+
+@mixin titleFlex {
+  display: flex;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
