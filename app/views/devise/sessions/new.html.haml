@@ -1,0 +1,22 @@
+.account__login__page
+  .header
+    =render "devise/registrations/logo-header"
+  .body
+    .white-body
+      .body-top
+        %h2 アカウントをお持ちでない方はこちら
+        .btn-signup
+          = render "devise/shared/link-signup"
+      .body-main
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:" メールアカウント", class:"input-default"
+          .field
+            = f.password_field :password, autocomplete: "current-password", placeholder:" パスワード", class:"input-default"
+          .actions
+            = f.submit "ログイン", class:"btn"
+          .btn-password
+            = render "devise/shared/link-password"
+
+  .footer
+    =render "devise/registrations/logo-footer"
