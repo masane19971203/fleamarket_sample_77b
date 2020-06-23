@@ -27,6 +27,12 @@ $textColor: rgb(204, 204, 204);
   padding-left: 10px;
 }
 
+@mixin titleFlex {
+  display: flex;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
 body {
   background-color: gray;
 }
@@ -93,9 +99,7 @@ body {
         @include textLine;
       }
       &__explanation {
-        display: flex;
-        padding-bottom: 16px;
-        padding-top: 16px;
+        @include titleFlex;
         &__text {
           @include title;
         }
@@ -137,9 +141,7 @@ body {
         }
       }
       &__brand {
-        display: flex;
-        padding-bottom: 16px;
-        padding-top: 16px;
+        @include titleFlex;
         &__text {
           @include title;
         }
@@ -157,9 +159,7 @@ body {
         }
       }
       &__status {
-        display: flex;
-        padding-bottom: 16px;
-        padding-top: 16px;
+        @include titleFlex;
         &__text {
           @include title;
         }
@@ -194,9 +194,7 @@ body {
         }
       }
       &__brand {
-        display: flex;
-        padding-bottom: 16px;
-        padding-top: 16px;
+        @include titleFlex;
         &__text {
           @include title;
         }
@@ -205,9 +203,7 @@ body {
         }
       }
       &__status {
-        display: flex;
-        padding-bottom: 16px;
-        padding-top: 16px;
+        @include titleFlex;
         &__text {
           @include title;
         }
