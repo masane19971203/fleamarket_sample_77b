@@ -1,65 +1,92 @@
 = render 'templates/search-header'
 
 .detail
-  .detail__product
-    .detail__product__name
-      商品サンプル
-    .detail__product__picts
-      .detail__product__picts__main
-        メインピクチャ
-      %ul.detail__product__picts__subs
-        %li.detail__product__picts__subs__li
-          サブピクチャ1
-        %li.detail__product__picts__subs__li
-          サブピクチャ2
-        %li.detail__product__picts__subs__li
-          サブピクチャ3
-        %li.detail__product__picts__subs__li
-          サブピクチャ4
+  .detail__wrapper
+    .detail__wrapper__product
+      .detail__wrapper__product__name
+        商品サンプル
+      .detail__wrapper__product__picts
+        .detail__wrapper__product__picts__main
+          メインピクチャ
+        %ul.detail__wrapper__product__picts__subs
+          %li.detail__wrapper__product__picts__subs__li
+            サブピクチャ1
+          %li.detail__wrapper__product__picts__subs__li
+            サブピクチャ2
+          %li.detail__wrapper__product__picts__subs__li
+            サブピクチャ3
+          %li.detail__wrapper__product__picts__subs__li
+            サブピクチャ4
 
-    .detail__product__price
-      ¥30,000
-    (税込)送料込み
-    .detail__product__text
-      本商品の説明文
+      .detail__wrapper__product__price
+        ¥30,000
+      (税込)送料込み
+      .detail__wrapper__product__text
+        本商品の説明文
     
-    .detail__product__info
-      %table{border: "1", class:"detail__product__info__list"}
-        %tr
-          %th 出品者
-          %td yamada
-        %tr
-          %th カテゴリー
-          %td 
-            .detail__product__info_category
-              キッズ
-            .detail__product__info_category
-              アウター
-        %tr
-          %th ブランド
-          %td
-        %tr
-          %th 商品のサイズ
-          %td
-        %tr
-          %th 商品の状態
-          %td 未使用に近い
-        %tr
-          %th 配送料の負担
-          %td 送料込み（出品者負担）
-        %tr
-          %th 発送元の地域
-          %td 岩手県
-        %tr
-          %th 発送の目安
-          %td 4-7日で発送
+      .detail__wrapper__product__info
+        %table{border: "1", class:"detail__wrapper__product__info__list"}
+          %tr
+            %th 出品者
+            %td yamada
+          %tr
+            %th カテゴリー
+            %td 
+              .detail__wrapper__product__info_category
+                キッズ
+              .detail__wrapper__product__info_category
+                アウター
+          %tr
+            %th ブランド
+            %td
+          %tr
+            %th 商品のサイズ
+            %td
+          %tr
+            %th 商品の状態
+            %td 未使用に近い
+          %tr
+            %th 配送料の負担
+            %td 送料込み（出品者負担）
+          %tr
+            %th 発送元の地域
+            %td 岩手県
+          %tr
+            %th 発送の目安
+            %td 4-7日で発送
 
-    .detail__product__under
-      .detail__product__under__favorite
-        = icon('fas','star')
-        お気に入り 0 
-      .detail__product__under__bad-report
-        = icon('fab','font-awesome-flag')
-        不適切な商品の通報
+      .detail__wrapper__product__under
+        .detail__wrapper__product__under__favorite
+          = icon('fas','star')
+          お気に入り 0 
+        .detail__wrapper__product__under__bad-report
+          =icon('fab','font-awesome-flag')
+          不適切な商品の通報
+
+    .detail__wrapper__comments
+      = form_with url:'#', class:"detail__wrapper__comments__form"   do |form|
+        = form.text_area :comment, class: 'detail__wrapper__comments__form__comment'
+        .detail__wrapper__comments__form__text
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .detail__wrapper__comments__form__submit
+          %label
+            = icon('fas','comment')
+            コメントする
+            = form.submit '%', class:"detail__wrapper__comments__form__submit--btn"
+    
+    .detail__wrapper__selecter
+      .detail__wrapper__selecter__prev
+        = link_to "< 前の商品", "#", class:"detail__wrapper__selecter__prev--link"
+      .detail__wrapper__selecter__next
+        = link_to "次の商品 >", "#", class:"detail__wrapper__selecter__next--link"
+
+    .detail__wrapper__other-products
+      .detail__wrapper__other-products__title
+        キッズをもっと見る
+
+      = render 'templates/product-overview'
+      
 
 = render 'templates/download-footer'

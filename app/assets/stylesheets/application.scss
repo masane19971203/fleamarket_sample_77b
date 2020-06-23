@@ -6,6 +6,7 @@
 //configフォルダのscss
 @import "config/toppage/config-top";
 @import "config/user-menu/config-user-menu";
+@import "config/detail-products/config-detail-products";
 
 //mixinフォルダのscss
 @import "mixin/toppage/mixin-top";
@@ -15,6 +16,7 @@
 @import "modules/header/search-header";
 @import "modules/footer/download-footer";
 @import "modules/exhibition-btn";
+@import "modules/product-overview";
 @import "modules/toppage/top";
 @import "modules/user-menu/user-menu";
 @import "modules/detail-products/detail-products.scss";
