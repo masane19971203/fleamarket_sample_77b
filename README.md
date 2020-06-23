@@ -106,6 +106,8 @@
 |password|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |dob|date|null: false|
 |comment|text||
 |phonenumber|string||
@@ -121,7 +123,6 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|area|string|null: false|
 |city|string|null: false|
 |number|string|null: false|
 |building|string||
