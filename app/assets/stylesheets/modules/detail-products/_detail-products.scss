@@ -50,27 +50,24 @@
         margin: 20px 0px;
       }
 
-      &__info{
+      &__info{ 
+        width: 100%; 
+        font-size: 14px;   
+        table-layout: fixed;
+        border-color: #c0c0c0;
 
-        &__list{
-          width: 100%; 
-          font-size: 14px;   
-          table-layout: fixed;
-          border-color: #c0c0c0;
-
-          & tr{
-            height: 50px;
-            
-          & th{
-            @include set_table_layout(25%,center);
-            background-color: $product-background-color;
-          }
-
-          & td{
-            @include set_table_layout(75%,left);
-            padding: 10px;
-          }
+        & tr{
+          height: 50px;
+        
+        & th{
+          @include set_table_layout(25%,center);
+          background-color: $product-background-color;
         }
+
+        & td{
+          @include set_table_layout(75%,left);
+          padding: 10px;
+        }      
       }
     }
     
