@@ -12,3 +12,8 @@
   border: solid 1px $color;
   border-radius: $curve;
 }
+
+@mixin set_table_layout($width,$text_position){
+  width: $width;
+  text-align: $text_position;
+}

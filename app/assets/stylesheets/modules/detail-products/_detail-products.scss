@@ -2,7 +2,7 @@
 .detail{
   position: relative;
   width: 100%;
-  background-color: #EEEEEE;
+  background-color: $product-background-color;
   padding: 40px;
   @include set_boxes_to_horizontal(center);
 
@@ -60,17 +60,14 @@
 
           & tr{
             height: 50px;
-            border-color: #c0c0c0;
             
           & th{
-            width: 25%;
-            text-align: center;
-            background-color: #EEEEEE;
+            @include set_table_layout(25%,center);
+            background-color: $product-background-color;
           }
 
           & td{
-            width: 75%;
-            text-align: left;
+            @include set_table_layout(75%,left);
             padding: 10px;
           }
         }
@@ -109,7 +106,7 @@
         }
 
         &__text{
-          background-color: #EEEEEE;
+          background-color: $product-background-color;
           font-size: 14px;
           margin-top: 10px;
           padding: 5px;
