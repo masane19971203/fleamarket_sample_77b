@@ -29,16 +29,73 @@
       &__subs{
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
+        overflow: scroll;
 
         &__li{
           width: 120px;
           height: 80px;
           background-color: hotpink;
+          margin: 5px 0px;
         }
       }
-
+    }
+    &__price{
+      font-size: 35px;
+      font-weight: bold;
     }
 
+    &__text{
+      font-size: 18px;
+      text-align: left;
+      margin: 20px 0px;
+    }
+
+    &__info{
+
+      &__list{
+        width: 100%; 
+        font-size: 14px;   
+        table-layout: fixed;
+
+        & tr{
+          height: 50px;
+
+          & th{
+            width: 25%;
+            text-align: center;
+          }
+
+          & td{
+            width: 75%;
+            text-align: left;
+            padding: 10px;
+          }
+        }
+      }
+    }
+    
+    &__under{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      
+      &__favorite{
+        
+        padding: 5px 10px;
+        border: solid 1px goldenrod;
+        border-radius: 20px;
+        color: $top-color;
+      }
+
+      &__bad-report{
+        font-size: 14px;
+        line-height: 34px;
+        padding: 0px 10px;
+        border: solid 1px #000000;
+        border-radius: 5px;
+      }
+    }
   }
   
 }
