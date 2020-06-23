@@ -1,0 +1,25 @@
+
+.header{
+  height: 128px;
+  width: 100vw;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer{
+  height: 150px;
+  width: 100vw;
+  background-color:whitesmoke;
+  text-align: center;
+  padding: 40px 0;
+  ul{
+    li{
+      display: inline-block;
+      font-size: 12px;
+      font-weight: lighter;
+      margin-right: 15px;
+      padding-bottom: 30px;
+    }
+  }
+}
