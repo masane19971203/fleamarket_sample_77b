@@ -3,8 +3,8 @@
   width: 100%;
   background-color: #EEEEEE;
   padding: 40px;
-  display: flex;
-  justify-content: center;
+  @include set_boxes_to_horizontal(center);
+
 
   &__wrapper{
     width: 55%;
@@ -16,36 +16,31 @@
       background-color: $product-content-color;
 
       &__name{
-        font-size: 20px;
-        font-weight: bold;
+        @include set_bold_string(20px);
         line-height: 60px;
       }
 
       &__picts{
 
         &__main{
-          width: 100%;
-          height: 400px;
+          @include set_detailpage_box(100%,400px);
           background-color: gold;
         }
 
         &__subs{
-          display: flex;
-          justify-content: space-around;
+          @include set_boxes_to_horizontal(space-around);
           flex-wrap: wrap;
           overflow: scroll;
 
           &__li{
-            width: 120px;
-            height: 80px;
+            @include set_detailpage_box(120px,80px);
             background-color: hotpink;
             margin: 5px 0px;
           }
         }
       }
       &__price{
-        font-size: 35px;
-        font-weight: bold;
+        @include set_bold_string(35px);
       }
 
       &__text{
@@ -82,15 +77,13 @@
     }
     
     &__under{
-      display: flex;
-      justify-content: space-between;
+      @include set_boxes_to_horizontal(space-between);
       margin-top: 30px;
       
       &__favorite{
         
         padding: 5px 10px;
-        border: solid 1px goldenrod;
-        border-radius: 20px;
+        @include set_border_with_radious(goldenrod,20px);
         color: $top-color;
       }
 
@@ -98,8 +91,7 @@
           font-size: 14px;
           line-height: 34px;
           padding: 0px 10px;
-          border: solid 1px #000000;
-          border-radius: 5px;
+          @include set_border_with_radious(#000000,5px);
         }
       }
     }
@@ -112,8 +104,7 @@
       &__form{
 
         &__comment{
-          width: 100%;
-          height: 100px;
+          @include set_detailpage_box(100%,100px);
         }
 
         &__text{
@@ -125,15 +116,13 @@
 
         &__submit{
           margin-top: 20px;
-          display: flex;
-          justify-content: center;
+          @include set_boxes_to_horizontal(center);
 
           & label{
             background-color: $top-color;
             color: #FFFFFF;
             font-size: 20px;
-            border: solid 1px $top-color;
-            border-radius: 40px;
+            @include set_border_with_radious($top-color,40px);
             padding: 10px 120px;
           }
 
@@ -146,8 +135,7 @@
     }
 
     &__selecter{
-      display: flex;
-      justify-content: space-between;
+      @include set_boxes_to_horizontal(space-between);
 
       &__prev, &__next{
 
@@ -163,8 +151,7 @@
 
       &__title{
         color: $top-color;
-        font-size: 20px;
-        font-weight: bold;
+        @include set_bold_string(20px);
         margin-bottom: 20px;
       }
     }

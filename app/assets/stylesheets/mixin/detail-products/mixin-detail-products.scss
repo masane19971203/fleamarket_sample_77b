@@ -1,0 +1,14 @@
+@mixin set_detailpage_box($width,$height){
+  width: $width;
+  height: $height;
+}
+
+@mixin set_bold_string($size){
+  font-size: $size;
+  font-weight: bold;
+}
+
+@mixin set_border_with_radious($color,$curve){
+  border: solid 1px $color;
+  border-radius: $curve;
+}
