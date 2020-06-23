@@ -1,3 +1,5 @@
+.simple-header
+  =render 'templates/logo-header'
 .products-new
   .products-new__contents
     -# ↓コントローラ作成後,createページに飛ぶように指定して下さい(createのview作成済み)
@@ -79,3 +81,5 @@
         =f.submit '出品する', class: 'products-new__contents__form__btn__submit'
         -# ↓リンク先未指定
         =link_to 'もどる', '#', class: 'products-new__contents__form__btn__back'
+.simple-footer
+  =render 'templates/logo-footer'
