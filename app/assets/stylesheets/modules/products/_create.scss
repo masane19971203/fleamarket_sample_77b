@@ -1,0 +1,63 @@
+.header {
+  height: 128px;
+  width: 100vw;
+  background-color: whitesmoke;
+  text-align: center;
+}
+
+a {
+  color: black;
+  font-size: 20px;
+  line-height: 128px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "游ゴシック", "Yu Gothic", "YuGothic";
+}
+
+.body {
+  background-color: whitesmoke;
+  display: block;
+  font-family: "游ゴシック", "Yu Gothic", "YuGothic";
+}
+.content {
+  margin: 0 auto;
+  width: 700px;
+  height: 450px;
+  background-color: white;
+  &__title {
+    font-size: 32px;
+    padding: 60px 16px;
+    text-align: center;
+    font-weight: bold;
+  }
+  &__message {
+    font-size: 20px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  &__home {
+    padding: 54px 16px 48px;
+    max-width: 320px;
+    margin: 0 auto;
+    &__btn {
+      &__link {
+        height: 50px;
+        width: 100%;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: whitesmoke;
+  height: calc(100vh - 578px)
+}
