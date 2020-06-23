@@ -1,15 +1,14 @@
-.header
-  -# ↓リンク先未指定
-  =link_to "#/#", class: "header__btn" do
-    furima
-.body
-  .content
-    .content__title
+.simple-header
+  =render 'templates/logo-header'
+.products-create-body
+  .products-create-body__content
+    .products-create-body__content__title
       出品が完了しました！
-    .content__message
+    .products-create-body__content__message
       あなたが出品した商品は「出品した商品一覧」からいつでも見ることが出来ます。
-    .content__home
-      .content__homt__btn
-        =link_to "/", class: "content__home__btn__link" do
+    .products-create-body__content__home
+      .products-create-body__content__home__btn
+        =link_to "/", class: "products-create-body__content__home__btn__link" do
           ホームへ
-.footer
+.simple-footer
+  =render 'templates/logo-footer'

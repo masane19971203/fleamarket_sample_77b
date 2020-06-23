@@ -8,10 +8,14 @@
 @import "config/user-menu/config-user-menu";
 @import "config/detail-products/config-detail-products";
 
+//variableフォルダのscss
+@import "variable/products/variable.scss";
+
 //mixinフォルダのscss
 @import "mixin/toppage/mixin-top";
 @import "mixin/user-menu/mixin-user-menu";
 @import "mixin/detail-products/mixin-detail-products";
+@import "mixin/products/mixin.scss";
 
 //modulesフォルダのscss
 @import "modules/share-header-footer";
@@ -20,8 +24,6 @@
 @import "modules/exhibition-btn";
 @import "modules/product-overview";
 @import "modules/toppage/top";
-@import "mixin/products/mixin.scss";
-@import "variable/products/variable.scss";
 @import "modules/products/new";
 @import "modules/products/create";
 @import "modules/user-menu/user-menu";
