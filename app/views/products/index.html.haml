@@ -60,8 +60,8 @@
         .detail__wrapper__product__under__favorite
           = icon('fas','star')
           お気に入り 0 
-        .detail__wrapper__product__under__bad-report
-          =icon('fab','font-awesome-flag')
+        = link_to "#",class:"detail__wrapper__product__under__bad-report" do
+          = icon('fab','font-awesome-flag')
           不適切な商品の通報
 
     .detail__wrapper__comments
