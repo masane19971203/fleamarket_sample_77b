@@ -1,5 +1,5 @@
 .header
-  = render partial: 'logo-header'
+  = render partial: 'templates/logo-header'
 .contents
   .content
     .contet__title
@@ -8,7 +8,7 @@
     .content__product
       .content__product__items
         .content__product__items__img
-          = image_tag "logo.png", size: "64x64"
+          = image_tag "header/logo.png", size: "64x64"
         .content__product__items__name
           必ず幸せになれる不思議な壺
           %p¥128,000（税込）送料込み
@@ -30,7 +30,7 @@
         .content__credit__box__day
           1/2
         .content__credit__box__img
-          = image_tag "Mastercard-logo.svg.png", size: "16x16"  
+          = image_tag "header/logo.png", size: "16x16"  
     .content__address
       .content__address__title
         配送先
@@ -45,7 +45,7 @@
         田中知樹
     .content__buy
       .content__buy__btn
-        =link_to "user_menu/new/create", class:"content__buy__btn__submit" do
+        =link_to "", class:"content__buy__btn__submit" do
           購入する
 .footer
-  = render partial: 'logo-footer'
+  = render partial: 'templates/logo-footer'
