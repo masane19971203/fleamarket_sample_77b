@@ -1,202 +1,16 @@
-
-body {
-  background-color: gray;
-}
-.new-contents {
-  background-color: white;
-  width: 700px;
-  margin: 0 auto;
-  &__form {
-    &__image {
-      padding: 40px;
-      border-bottom: 1px solid $borderColor;
-      &__box {
-        display: flex;
-        padding-bottom: 16px;
-        &__text {
-          @include title;
-        }
-        &__alert {
-          @include require;
-        }
-      }
-      &__title {
-        font-size: 14px;
-        margin-bottom: 14px;
-      }
-      &__area {
-        width: 100%;
-        height: 133px;
-        background-color: $borderColor;
-        border: dashed 1px $textColor;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        cursor: pointer;
-        &__icon {
-          font-size: 20px;
-        }
-        &__text {
-          text-align: center;
-          font-size: 12px;
-        }
-      }
-      &__select {
-        display: none;
-        cursor: pointer;
-      }
-    }
-    &__item {
-      padding: 40px;
-      border-bottom: 1px solid $borderColor;
-      &__box {
-        display: flex;
-        padding-bottom: 16px;
-        &__text {
-          @include title;
-        }
-        &__alert {
-          @include require;
-        }
-      }
-      &__textinput {
-        @include textLine;
-      }
-      &__explanation {
-        @include titleFlex;
-        &__text {
-          @include title;
-        }
-        &__alert {
-          @include require;
-        }
-      }
-      &__textarea {
-        padding: 12px;
-        width: 100%;
-        height: 155px;
-        border: 1px solid $textColor;
-        border-radius: 4px 4px 4px 4px;
-      }
-      &__count {
-        padding-top: 10px;
-        text-align: end;
-        font-size: 10px;
-        color: gray;
-      }
-    }
-    &__detail {
-      padding: 40px;
-      border-bottom: 1px solid $borderColor;
-      &__title {
-        margin-bottom: 40px;
-        @include title;
-        color: gray;
-
-      }
-      &__category {
-        display: flex;
-        padding-bottom: 16px;
-        &__text {
-          @include title;
-        }
-        &__alert {
-          @include require;
-        }
-      }
-      &__brand {
-        @include titleFlex;
-        &__text {
-          @include title;
-        }
-        &--any {
-          background-color: #bfbfbf;
-          color: white;
-          margin-left: 8px;
-          width: 32px;
-          padding: 0 4px 0;
-          font-size: 12px;
-          font-weight: bold;
-          height: 16px;
-          line-height: 16px;
-          border-radius: 4px 4px 4px 4px;
-        }
-      }
-      &__status {
-        @include titleFlex;
-        &__text {
-          @include title;
-        }
-        &__alert {
-          @include require;
-        }
-      }
-      &__textinput {
-        @include textLine;
-      }
-      &__select {
-        @include textLine;
-        cursor: pointer;
-      }
-    }
-    &__shipping {
-      padding: 40px;
-      border-bottom: 1px solid $borderColor;
-      &__title {
-        margin-bottom: 40px;
-        @include title;
-        color: gray;
-      }
-      &__category {
-        display: flex;
-        padding-bottom: 16px;
-        &__text {
-          @include title;
-        }
-        &__alert {
-          @include require;
-        }
-      }
-      &__brand {
-        @include titleFlex;
-        &__text {
-          @include title;
-        }
-        &__alert {
-          @include require;
-        }
-      }
-      &__status {
-        @include titleFlex;
-        &__text {
-          @include title;
-        }
-        &__alert {
-          @include require;
-        }
-      }
-      &__select {
-        @include textLine;
-        cursor: pointer;
-      }
-    }
-    &__price {
-      padding: 40px;
-      &__title {
-        padding-bottom: 16px;
-        font-weight: bold;
-        font-size: 13px;
-        color: gray;
-      }
-      &__box {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        &__left {
+.products-new {
+  background-color: $borderColor;
+  &__contents {
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
+    &__form {
+      &__image {
+        padding: 40px;
+        border-bottom: 1px solid $borderColor;
+        &__box {
           display: flex;
+          padding-bottom: 16px;
           &__text {
             @include title;
           }
@@ -204,66 +18,250 @@ body {
             @include require;
           }
         }
-        &__right {
+        &__title {
+          font-size: 14px;
+          margin-bottom: 14px;
+        }
+        &__area {
+          width: 100%;
+          height: 133px;
+          background-color: $borderColor;
+          border: dashed 1px $textColor;
+          margin: 0 auto;
           display: flex;
-          &__yen {
-            line-height: 45px;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          cursor: pointer;
+          &__icon {
+            font-size: 20px;
           }
-          &__numinput {
-            height: 43px;
-            border: 1px solid $textColor;
-            border-radius: 4px 4px 4px 4px;
-            text-align: right;
-            width: 280px;
-            margin-bottom: 10px;
+          &__text {
+            text-align: center;
+            font-size: 12px;
           }
         }
+        &__select {
+          display: none;
+          cursor: pointer;
+        }
       }
-      &__fee {
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 20px;
+      &__item {
+        padding: 40px;
         border-bottom: 1px solid $borderColor;
-        margin-bottom: 20px;
-        &__text {
-          font-size: 13px;
+        &__box {
+          display: flex;
+          padding-bottom: 16px;
+          &__text {
+            @include title;
+          }
+          &__alert {
+            @include require;
+          }
+        }
+        &__textinput {
+          @include textLine;
+        }
+        &__explanation {
+          @include titleFlex;
+          &__text {
+            @include title;
+          }
+          &__alert {
+            @include require;
+          }
+        }
+        &__textarea {
+          padding: 12px;
+          width: 100%;
+          height: 155px;
+          border: 1px solid $textColor;
+          border-radius: 4px 4px 4px 4px;
+        }
+        &__count {
+          padding-top: 10px;
+          text-align: end;
+          font-size: 10px;
+          color: gray;
         }
       }
-      &__profit {
+      &__detail {
+        padding: 40px;
+        border-bottom: 1px solid $borderColor;
+        &__title {
+          margin-bottom: 40px;
+          @include title;
+          color: gray;
+
+        }
+        &__category {
+          display: flex;
+          padding-bottom: 16px;
+          &__text {
+            @include title;
+          }
+          &__alert {
+            @include require;
+          }
+        }
+        &__brand {
+          @include titleFlex;
+          &__text {
+            @include title;
+          }
+          &--any {
+            background-color: #bfbfbf;
+            color: white;
+            margin-left: 8px;
+            width: 32px;
+            padding: 0 4px 0;
+            font-size: 12px;
+            font-weight: bold;
+            height: 16px;
+            line-height: 16px;
+            border-radius: 4px 4px 4px 4px;
+          }
+        }
+        &__status {
+          @include titleFlex;
+          &__text {
+            @include title;
+          }
+          &__alert {
+            @include require;
+          }
+        }
+        &__textinput {
+          @include textLine;
+        }
+        &__select {
+          @include textLine;
+          cursor: pointer;
+        }
+      }
+      &__shipping {
+        padding: 40px;
+        border-bottom: 1px solid $borderColor;
+        &__title {
+          margin-bottom: 40px;
+          @include title;
+          color: gray;
+        }
+        &__category {
+          display: flex;
+          padding-bottom: 16px;
+          &__text {
+            @include title;
+          }
+          &__alert {
+            @include require;
+          }
+        }
+        &__brand {
+          @include titleFlex;
+          &__text {
+            @include title;
+          }
+          &__alert {
+            @include require;
+          }
+        }
+        &__status {
+          @include titleFlex;
+          &__text {
+            @include title;
+          }
+          &__alert {
+            @include require;
+          }
+        }
+        &__select {
+          @include textLine;
+          cursor: pointer;
+        }
+      }
+      &__price {
+        padding: 40px;
+        &__title {
+          padding-bottom: 16px;
+          font-weight: bold;
+          font-size: 13px;
+          color: gray;
+        }
+        &__box {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          &__left {
+            display: flex;
+            &__text {
+              @include title;
+            }
+            &__alert {
+              @include require;
+            }
+          }
+          &__right {
+            display: flex;
+            &__yen {
+              line-height: 45px;
+            }
+            &__numinput {
+              height: 43px;
+              border: 1px solid $textColor;
+              border-radius: 4px 4px 4px 4px;
+              text-align: right;
+              width: 280px;
+              margin-bottom: 10px;
+            }
+          }
+        }
+        &__fee {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 20px;
+          border-bottom: 1px solid $borderColor;
+          margin-bottom: 20px;
+          &__text {
+            font-size: 13px;
+          }
+        }
+        &__profit {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          &__text {
+            font-size: 13px;
+          }
+        }
+      }
+      &__btn {
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        &__text {
-          font-size: 13px;
+        flex-direction: column;
+        align-items: center;
+        &__submit {
+          display: block;
+          margin: 0 auto 20px;
+          background-color: #ea352d;
+          color: white;
+          width: 310px;
+          height: 46px;
+          border: none;
+          border-radius: 4px 4px 4px 4px;
+          font-weight: bold;
+          cursor: pointer;
         }
-      }
-    }
-    &__btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      &__submit {
-        display: block;
-        margin: 0 auto 20px;
-        background-color: #ea352d;
-        color: white;
-        width: 310px;
-        height: 46px;
-        border: none;
-        border-radius: 4px 4px 4px 4px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      &__back {
-        text-decoration: none;
-        margin-bottom: 20px;
-        font-size: 13px;
-        color: #0095ee;
+        &__back {
+          text-decoration: none;
+          margin-bottom: 20px;
+          font-size: 13px;
+          color: #0095ee;
+        }
       }
     }
   }
 }
-
 .html {
   color: red;
 }
