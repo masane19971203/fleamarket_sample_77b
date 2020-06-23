@@ -7,9 +7,9 @@ ja:
         nickname: ニックネーム
         email: メールアドレス
         password: パスワード
-        name: お名前(全角)
-        kana_name: お名前カナ(全角)
-        birthday: 生年月日
+        first_name: お名前(全角)
+        first_name_kana: お名前カナ(全角)
+        bod: 生年月日
         password_confirmation: パスワード(確認)
 
       admin:
