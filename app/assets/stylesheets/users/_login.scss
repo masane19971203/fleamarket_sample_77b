@@ -4,18 +4,16 @@
   position: relative;
   padding-bottom: 128px;
   .login-header{
-    height: 128px;
-    display: flex;
-    justify-content: center;
+    @include position--center();
     align-items: center;
+    height: 128px;
     .img{
       height: 50px;
       display: flex;
     }
   }
   .main{
-    display: flex;
-    justify-content: center;
+    @include position--center();
     .white-body{
       background-color: white;
       width: 480px;
@@ -46,16 +44,14 @@
       }
       .body-main{
         padding-top: 20px;
-        display: flex;
-        justify-content: center;
+        @include position--center();
         .input-default{
           height: 40px;
           width: 420px;
           margin-bottom: 35px;
         }
         .actions{
-          display: flex;
-          justify-content: center;
+          @include position--center();
           .btn{
             background-color: #ea352d;
             border-color: #ea352d;
