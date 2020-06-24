@@ -3,7 +3,7 @@
   min-height: 100vh;
   position: relative;
   padding-bottom: 200px;
-  .header{
+  .signup-header{
     height: 128px;
     display: flex;
     justify-content: center;
@@ -13,7 +13,7 @@
       display: flex;
     }
   }
-  .body{
+  .signup-main{
     display: flex;
     justify-content: center;
     .white-body{
@@ -133,7 +133,7 @@
       }
     }
   }
-  .footer{
+  .signup-footer{
     position: absolute;
     bottom: 0px;
     background-color: #f5f5f5;
