@@ -3,7 +3,7 @@
   min-height: 100vh;
   position: relative;
   padding-bottom: 128px;
-  .login-header{
+  .login__header{
     @include position--center();
     align-items: center;
     height: 128px;
@@ -12,12 +12,12 @@
       display: flex;
     }
   }
-  .main-login{
+  .main__login{
     @include position--center();
-    .white-body{
+    .white--body{
       background-color: white;
       @include box-size(480px,500px)
-      .body-top{
+      .body--top{
         height: 120px;
         border-bottom: 1px solid;
         border-color: #f5f5f5;
@@ -26,12 +26,12 @@
           font-size: 14px;
           padding-top: 20px;
         }
-        .btn-signup{
-          @include box-size(300px,40px)
+        .btn--signup{
           background-color: #0099e8;
           margin-top: 20px;
           text-align: center;
           margin-left: 90px;
+          @include box-size(300px,40px)
           
           .sign-up-btn{
             text-decoration: none;
@@ -40,12 +40,12 @@
           }
         }
       }
-      .body-main{
+      .body--main{
         padding-top: 20px;
         @include position--center();
-        .input-default{
-          @include box-size(420px,40px)
+        .input--default{
           margin-bottom: 35px;
+          @include box-size(420px,40px)
         }
         .actions{
           @include position--center();
@@ -57,7 +57,7 @@
             height: 50px;
           }
         }
-        .btn-password{
+        .btn--password{
           margin-top: 25px;
           .password-btn{
             color: #0099e8;
@@ -67,12 +67,12 @@
       }
     }
   }
-  .login-footer{
+  .login__footer{
     position: absolute;
     bottom: 0px;
     background-color: #f5f5f5;
-    @include box-size(100vw,200px)
     text-align: center;
+    @include box-size(100vw,200px)
     
     .img{
       margin-top: 60px;
