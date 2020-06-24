@@ -5,20 +5,17 @@
   padding-bottom: 200px;
   .signup-header{
     height: 128px;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    @include boxcenter();
     .img{
       height: 50px;
       display: flex;
     }
   }
   .signup-main{
-    display: flex;
-    justify-content: center;
+    @include boxcenter();
     .white-body{
-      width: 700px;
-      height: auto;
+      @include boxsize(700px,auto)
       background-color: white;
       .body-top{
         border-bottom: 1px solid;
@@ -32,9 +29,7 @@
         }
       }
       .body-main{
-        display: flex;
-        justify-content: center;
-        // margin-left: 170px;
+        @include boxcenter();
         .member-infomation{
           padding-top: 30px;
           .field{
@@ -56,17 +51,14 @@
             }
             .input-default{
               margin-top: 10px;
-              width: 350px;
-              height: 40px;
+              @include boxsize(350px,40px)
               border-radius: 3px;
             }
             .input-default-password{
               margin-top: 10px;
-              width: 350px;
-              height: 40px;
+              @include boxsize(350px,40px)
               margin-bottom: 5px;
               border-radius: 3px;
-  
             }
           }
         }
@@ -94,23 +86,19 @@
             }
             .input-default{
               margin-top: 10px;
-              width: 170px;
-              height: 40px;
+              @include boxsize(170px,40px)
               border-radius: 3px;
             }
             .year{
-              height: 40px;
-              width: 90px;
+              @include boxsize(90px,40px)
               margin: 4px;
             }
             .month{
-              height: 40px;
-              width: 90px; 
+              @include boxsize(90px,40px)
               margin: 4px;
             }
             .day{
-              height: 40px;
-              width: 90px;
+              @include boxsize(90px,40px)
               margin: 4px;
             }
             .class_note{
@@ -125,8 +113,7 @@
             border-color: #ea352d;
             border-radius: 5px;
             color: white;
-            width: 355px;
-            height: 50px;
+            @include boxsize(355px,50px)
             margin: 30px 0px;
           }
         }
@@ -137,8 +124,7 @@
     position: absolute;
     bottom: 0px;
     background-color: #f5f5f5;
-    height: 200px;
-    width: 100vw;
+    @include boxsize(100vw,200px)
     text-align: center;
     .img{
       margin-top: 60px;
