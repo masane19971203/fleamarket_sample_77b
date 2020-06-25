@@ -8,7 +8,7 @@
         .login__main__white--top__btn
           = render "devise/shared/link-signup"
       .login__main__white--main
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = form_with model:@user, url:session_path(resource_name) do |f|
           .field
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:" メールアカウント", class:"input__default"
           .field
