@@ -1,10 +1,9 @@
 .account__sign-up__page2{
   background-color: #f5f5f5;
   height: 100vh;
-  .header{
+  .signup2__header{
+    @include boxcenter();
     height: 128px;
-    display: flex;
-    justify-content: center;
     align-items: center;
     .img{
       height: 50px;
@@ -12,14 +11,12 @@
       margin: 515px;
     }
   }
-  .body{
-    display: flex;
-    justify-content: center;
-    .white-body{
-      width: 480px;
-      height: 400px;
+  .signup2__main{
+    @include boxcenter();
+    &--white{
+      @include boxsize(480px,400px);
       background-color: white;
-      .body-top{
+      &__top{
         border-bottom: 1px solid;
         border-color: whitesmoke;
         height: 80px;
@@ -30,7 +27,7 @@
           font-weight: 550;
         }
       }
-      .body-main{
+      &__main{
         h2{
           text-align: center;
           padding-top: 60px;
@@ -38,9 +35,8 @@
           line-height: 35px;
         }
         .actions{
+          @include boxsize(300px,45px);
           margin-top: 70px;
-          height: 45px;
-          width: 300px;
           border: 1px solid;
           border-color: #ea352d;
           background-color: #ea352d;
@@ -56,14 +52,10 @@
       }
     }
   }
-  .footer{
-    // position: absolute;
-    // bottom: 0px;
+  .signup2__footer{
+    @include boxsize(100vw,200px);
     background-color: #f5f5f5;
-    height: 200px;
-    width: 100vw;
     text-align: center;
-    // margin-left: 300px;
     .img{
       margin-top: 60px;
       height: 55px;

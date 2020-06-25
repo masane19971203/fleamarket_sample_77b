@@ -1,12 +1,12 @@
 .account__sign-up__page2
-  .header
+  .signup2__header
     =render 'devise/registrations/logo-header'
-  .body
-    .white-body
-      .body-top
+  .signup2__main
+    .signup2__main--white
+      .signup2__main--white__top
         %h1
           会員登録完了
-      .body-main
+      .signup2__main--white__main
         %h2
           ありがとうございます。
           %br
@@ -15,5 +15,5 @@
         .actions
           =link_to "フリマをはじめる", "#", class:"btn"
 
-  .footer
+  .signup2__footer
     =render 'devise/registrations/logo-footer'
