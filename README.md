@@ -133,7 +133,7 @@
 |building|string||
 |zip|integer|null: false|
 |area|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :area
 - belongs_to :user
