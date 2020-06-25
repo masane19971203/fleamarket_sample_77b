@@ -50,13 +50,13 @@
               font-size: 13px;
             }
             .input__default{
-              margin-top: 10px;
               @include boxsize(350px,40px);
+              margin-top: 10px;
               border-radius: 3px;
             }
             .input__default__password{
-              margin-top: 10px;
               @include boxsize(350px,40px);
+              margin-top: 10px;
               margin-bottom: 5px;
               border-radius: 3px;
             }
