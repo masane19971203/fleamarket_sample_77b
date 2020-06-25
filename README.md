@@ -132,6 +132,7 @@
 |number|string|null: false|
 |building|string||
 |zip|integer|null: false|
+|phonenumber|string||
 |area|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 ### Association
