@@ -3,7 +3,7 @@
   min-height: 100vh;
   position: relative;
   padding-bottom: 200px;
-  .signup-header{
+  .signup__header{
     height: 128px;
     align-items: center;
     @include boxcenter();
@@ -12,12 +12,12 @@
       display: flex;
     }
   }
-  .signup-main{
+  .signup__main{
     @include boxcenter();
-    .white-body{
-      @include boxsize(700px,auto)
+    &--white{
+      @include boxsize(700px,auto);
       background-color: white;
-      .body-top{
+      &__top{
         border-bottom: 1px solid;
         border-color: whitesmoke;
         height: 100px;
@@ -28,9 +28,9 @@
           font-weight: 550;
         }
       }
-      .body-main{
+      &__main{
         @include boxcenter();
-        .member-infomation{
+        &--member{
           padding-top: 30px;
           .field{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,24 +45,24 @@
             border-radius: 3px;
             margin: 5px;
             }
-            .class_note{
+            .class__note{
               color: gray;
               font-size: 13px;
             }
-            .input-default{
+            .input__default{
               margin-top: 10px;
-              @include boxsize(350px,40px)
+              @include boxsize(350px,40px);
               border-radius: 3px;
             }
-            .input-default-password{
+            .input__default__password{
               margin-top: 10px;
-              @include boxsize(350px,40px)
+              @include boxsize(350px,40px);
               margin-bottom: 5px;
               border-radius: 3px;
             }
           }
         }
-        .personal-infomation{
+        &--personal{
           h3{
             font-weight: 600;
             margin-bottom: 5px;
@@ -84,24 +84,24 @@
               border-radius: 3px;
               margin: 5px;
             }
-            .input-default{
+            .input__default{
+              @include boxsize(170px,40px);
               margin-top: 10px;
-              @include boxsize(170px,40px)
               border-radius: 3px;
             }
             .year{
-              @include boxsize(90px,40px)
+              @include boxsize(90px,40px);
               margin: 4px;
             }
             .month{
-              @include boxsize(90px,40px)
+              @include boxsize(90px,40px);
               margin: 4px;
             }
             .day{
-              @include boxsize(90px,40px)
+              @include boxsize(90px,40px);
               margin: 4px;
             }
-            .class_note{
+            .class__note{
               color: gray;
               font-size: 13px;
             }
@@ -113,18 +113,18 @@
             border-color: #ea352d;
             border-radius: 5px;
             color: white;
-            @include boxsize(355px,50px)
             margin: 30px 0px;
+            @include boxsize(355px,50px);
           }
         }
       }
     }
   }
-  .signup-footer{
+  .signup__footer{
+    @include boxsize(100vw,200px);
     position: absolute;
     bottom: 0px;
     background-color: #f5f5f5;
-    @include boxsize(100vw,200px)
     text-align: center;
     .img{
       margin-top: 60px;
