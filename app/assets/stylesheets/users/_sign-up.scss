@@ -35,15 +35,26 @@
           .field{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin-bottom: 20px;
-            i{
-            background-color: #ea352d;
-            border: 1px solid;
-            border-color: #ea352d;
-            padding: 2px;
-            font-size: 13px;
-            color: white;
-            border-radius: 3px;
-            margin: 5px;
+            &__label{
+              display: flex;
+              justify-content: left;
+              h2{
+                font-weight: 550;
+                margin-top: 7px;
+              }
+              i{
+              background-color: #ea352d;
+              border: 1px solid;
+              border-color: #ea352d;
+              padding: 2px;
+              font-size: 13px;
+              color: white;
+              border-radius: 3px;
+              margin: 5px;
+              }
+              span{
+                margin-top: 7px;
+              }
             }
             .class__note{
               color: gray;
@@ -74,16 +85,25 @@
           .field{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin-bottom: 20px;
-            i{
-              background-color: #ea352d;
-              border: 1px solid;
-              border-color: #ea352d;
-              padding: 2px;
-              font-size: 13px;
-              color: white;
-              border-radius: 3px;
-              margin: 5px;
+            &__label{
+              display: flex;
+              justify-content: left;
+              h2{
+                font-weight: 550;
+                margin-top: 7px;
+              }
+              i{
+                background-color: #ea352d;
+                border: 1px solid;
+                border-color: #ea352d;
+                padding: 2px;
+                font-size: 13px;
+                color: white;
+                border-radius: 3px;
+                margin: 5px;
+              }
             }
+
             .input__default{
               @include boxsize(170px,40px);
               margin-top: 10px;
