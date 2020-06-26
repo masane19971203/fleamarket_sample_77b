@@ -8,3 +8,10 @@
 
 # ここに生成したrbを記述
 require './db/seeds/ladies.rb'
+require './db/seeds/appliances.rb'
+require './db/seeds/cars.rb'
+require './db/seeds/cosmetics.rb'
+require './db/seeds/handmades.rb'
+require './db/seeds/others.rb'
+require './db/seeds/sports.rb'
+require './db/seeds/tikets.rb'
