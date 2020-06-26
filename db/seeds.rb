@@ -10,3 +10,6 @@
 require './db/seeds/ladies.rb'
 require './db/seeds/mens.rb'
 require './db/seeds/baby-kids.rb'
+require './db/seeds/interior.rb'
+require './db/seeds/books.rb'
+require './db/seeds/hobby.rb'
