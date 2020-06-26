@@ -20,7 +20,3 @@ class Area < ActiveHash::Base
 ]
 
 end
-
-  # アソシエーション先への記述
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :area
