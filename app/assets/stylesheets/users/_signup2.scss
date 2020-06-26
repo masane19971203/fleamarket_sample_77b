@@ -1,16 +1,6 @@
 .account__sign-up__page2{
   background-color: #f5f5f5;
   height: 100vh;
-  .signup2__header{
-    @include boxcenter();
-    height: 128px;
-    align-items: center;
-    .img{
-      height: 50px;
-      display: flex;
-      margin: 515px;
-    }
-  }
   .signup2__main{
     @include boxcenter();
     &--white{
@@ -50,20 +40,6 @@
           }
         }
       }
-    }
-  }
-  .signup2__footer{
-    @include boxsize(100vw,200px);
-    background-color: #f5f5f5;
-    text-align: center;
-    .img{
-      margin-top: 60px;
-      height: 55px;
-    }
-    p4{
-      font-size: 16px;
-      margin-left: 25px;
-      color: gray;
     }
   }
 }
