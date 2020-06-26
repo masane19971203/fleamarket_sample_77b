@@ -16,6 +16,7 @@
 @import "mixin/user-menu/mixin-user-menu";
 @import "mixin/detail-products/mixin-detail-products";
 @import "mixin/products/mixin.scss";
+@import "mixin/users/mixin-signup";
 
 //modulesフォルダのscss
 @import "modules/share-header-footer";
@@ -30,3 +31,7 @@
 @import "modules/detail-products/detail-products.scss";
 @import "purchase/complete";
 @import "purchase/confirmation";
+
+//usersフォルダーのscss
+@import "users/sign-up";
+@import "users/signup2";
