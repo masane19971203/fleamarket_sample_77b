@@ -38,9 +38,6 @@ baby_kids_gbsmall.children.create([
   {name: "下着/肌着"}, 
   {name: "パジャマ"}, 
   {name: "ロンパース"}, 
-  {name: ""}, 
-  {name: ""}, 
-  {name: ""}, 
   {name: "その他"}
 ])
 

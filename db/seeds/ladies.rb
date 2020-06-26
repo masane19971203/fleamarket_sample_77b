@@ -73,7 +73,7 @@ ladies_skirt.children.create([
   {name: "ひざ丈スカート"}, 
   {name: "ロングスカート"}, 
   {name: "キュロット"}, 
-  {name: "その他"}, 
+  {name: "その他"}
 ])
 
 ladies_onepiece = ladies.children.create(name: "ワンピース")
@@ -87,11 +87,7 @@ ladies_onepiece.children.create([
   {name: "ローファー/革靴"}, 
   {name: "フラットシューズ/バレエシューズ"}, 
   {name: "長靴/レインシューズ"}, 
-  {name: "その他"}, 
-  {name: ""}, 
-  {name: ""}, 
-  {name: ""}, 
-  {name: ""}
+  {name: "その他"}
 ])
 
 ladies_shoes = ladies.children.create(name: "靴")

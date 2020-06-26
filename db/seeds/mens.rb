@@ -182,4 +182,4 @@ mens_underwear.children.create([
   {name: "その他"}
 ])
 
-mens_ohter = mens.children.create(name: "その他")
+mens_other = mens.children.create(name: "その他")
