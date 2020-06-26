@@ -16,6 +16,7 @@
 @import "mixin/user-menu/mixin-user-menu";
 @import "mixin/detail-products/mixin-detail-products";
 @import "mixin/products/mixin.scss";
+@import "mixin/user-devise/mixin-devise";
 @import "mixin/users/mixin-signup";
 
 //modulesフォルダのscss
@@ -32,6 +33,10 @@
 @import "purchase/complete";
 @import "purchase/confirmation";
 
-//usersフォルダーのscss
-@import "users/sign-up";
-@import "users/signup2";
+
+//usersのフォルダーのscss
+@import "users/login";
+
+//paswordのフォルダーのscss
+@import "password";
+
