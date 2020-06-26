@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'toppage#index'
+  root 'users#new-login'
 
   resources :user_menu, only: [:index, :show, :new, :create]
 
