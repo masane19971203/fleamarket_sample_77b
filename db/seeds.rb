@@ -8,3 +8,5 @@
 
 # ここに生成したrbを記述
 require './db/seeds/ladies.rb'
+require './db/seeds/mens.rb'
+require './db/seeds/baby-kids.rb'

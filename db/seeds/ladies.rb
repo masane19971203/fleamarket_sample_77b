@@ -94,6 +94,20 @@ ladies_onepiece.children.create([
   {name: ""}
 ])
 
+ladies_shoes = ladies.children.create(name: "靴")
+ladies_shoes.children.create([
+  {name: "ハイヒール/パンプス"}, 
+  {name: "ブーツ"},
+  {name: "サンダル"}, 
+  {name: "スニーカー"},
+  {name: "ミュール"}, 
+  {name: "モカシン"},
+  {name: "ローファー/革靴"},
+  {name: "フラットシューズ/バレエシューズ"}, 
+  {name: "長靴/レインシューズ"},
+  {name: "その他"}
+])
+
 ladies_roomware = ladies.children.create(name: "ルームウェア/パジャマ")
 ladies_roomware.children.create([
   {name: "パジャマ"}, 
@@ -157,7 +171,7 @@ ladies_accessory.children.create([
 
 ])
 
-ladies_hairaccessory = ladies.children.create(name: "アクセサリー")
+ladies_hairaccessory = ladies.children.create(name: "ヘアアクセサリー")
 ladies_hairaccessory.children.create([
   {name: "ヘアゴム/シュシュ"}, 
   {name: "ヘアバンド/カチューシャ"}, 
