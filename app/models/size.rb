@@ -3,6 +3,6 @@ class Size < ActiveHash::Base
     {id: 1, text: '選択してください'},
     {id: 2, text: 'Sサイズ'},
     {id: 3, text: 'Mサイズ'},
-    {id: 4, text: 'Lサイズ'},
+    {id: 4, text: 'Lサイズ'}
   ]
 end
