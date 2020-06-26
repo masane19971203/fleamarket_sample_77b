@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'password#forgot-password'
+  root 'toppage#index'
 
   resources :user_menu, only: [:index, :show, :new, :create]
 
