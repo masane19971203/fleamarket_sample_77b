@@ -12,7 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name_kana,    null: false
       t.string :last_name_kana,     null: false
       t.date   :dob,                null: false
-      t.text   :comment,            null: false
+      t.text   :comment
       t.string :phonenumber
       t.string :sex
       t.string :icon
