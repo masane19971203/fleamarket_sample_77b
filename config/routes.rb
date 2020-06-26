@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'users#new-login'
+  root 'password#forgot-password'
 
   resources :user_menu, only: [:index, :show, :new, :create]
 
