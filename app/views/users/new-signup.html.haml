@@ -1,6 +1,6 @@
+.simple-header
+  =render 'templates/logo-header'
 .account__sign-up__page
-  .signup__header
-    =render 'templates/logo-header'
   .signup__main
     .signup__main--white
       .signup__main--white__top
@@ -8,7 +8,7 @@
           会員情報入力
       .signup__main--white__main
         =form_with url: "#", method: :post, class: 'products-new__contents__form' do |f|
-
+          -# deviseを導入したらrenderのコメントアウトを外してね
           -# = render "devise/shared/error_messages", resource: resource
           .signup__main--white__main--member
             .field
@@ -77,5 +77,5 @@
                 修正するにはお時間を頂く場合がございます。
             .actions
               = f.submit "次へ進む", class:"next-btn"
-    .signup__footer
+    .simple-footer
       =render 'templates/logo-footer'

@@ -2,19 +2,9 @@
   background-color: #f5f5f5;
   min-height: 100vh;
   position: relative;
-  padding-bottom: 200px;
-  .signup__header{
-    height: 128px;
-    align-items: center;
-    @include boxcenter();
-    .img{
-      height: 50px;
-      display: flex;
-    }
-  }
   .signup__main{
-    @include boxcenter();
     &--white{
+      margin-left: 382px;
       @include boxsize(700px,auto);
       background-color: white;
       &__top{
@@ -138,22 +128,6 @@
           }
         }
       }
-    }
-  }
-  .signup__footer{
-    @include boxsize(100vw,200px);
-    position: absolute;
-    bottom: 0px;
-    background-color: #f5f5f5;
-    text-align: center;
-    .img{
-      margin-top: 60px;
-      height: 55px;
-    }
-    p4{
-      font-size: 16px;
-      margin-left: 25px;
-      color: gray;
     }
   }
 }
