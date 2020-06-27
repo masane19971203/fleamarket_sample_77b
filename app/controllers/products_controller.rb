@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @product = Product.new(product_params)
   end
 
   def show
