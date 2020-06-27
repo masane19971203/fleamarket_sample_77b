@@ -20,8 +20,6 @@
         ブランド
     .search-header__lower__user
       - if user_signed_in?
-        .search-header__lower__user__login
-          = link_to 'ログアウト', destroy_user_session_path, method: :delete
         .search-header__lower__user__registration
           = link_to 'マイページ', user_menu_index_path
       - else
