@@ -78,9 +78,12 @@ group :production do
   gem 'unicorn'
 end
 
+#フロントエンド側関連
 gem 'haml-rails'
-
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+
+#サーバーサイド側関連
 gem 'ancestry'
 gem 'devise'
+gem 'active_hash'
