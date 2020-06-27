@@ -9,4 +9,9 @@ class ProductsController < ApplicationController
 
   def create
   end
+
+  def show
+    @categories = Category.where(ancestry: nil)
+  end
+  
 end
