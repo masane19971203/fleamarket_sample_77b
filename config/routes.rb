@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :new]
   resources :users do
-    resources :addresses, only: :new
+    resources :addresses, only: [:new, :create, :update]
   end
 
 end
