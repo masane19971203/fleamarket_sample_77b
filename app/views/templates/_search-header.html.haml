@@ -19,7 +19,13 @@
       .search-header__lower__products__brand
         ブランド
     .search-header__lower__user
-      .search-header__lower__user__login
-        ログイン
-      .search-header__lower__user__registration
-        新規登録              
+      - if user_signed_in?
+        .search-header__lower__user__login
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+        .search-header__lower__user__registration
+          = link_to 'マイページ', user_menu_index_path
+      - else
+        .search-header__lower__user__login
+          = link_to 'ログイン', new_user_session_path
+        .search-header__lower__user__registration
+          = link_to '新規登録', new_user_registration_path
