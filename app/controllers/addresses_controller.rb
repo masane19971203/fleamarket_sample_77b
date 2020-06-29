@@ -8,18 +8,22 @@ class AddressesController < ApplicationController
   end
 
   def create
-    if Address.create(address_params)
+    @user = User.find(current_user.id)
+    @address = Address.new(address_params)
+    if @address.save
       redirect_to root_path
     else
-      render 'address#new'
+      render :new
     end
   end
 
   def update
-    if Address.update(address_params)
+    @user = User.find(current_user.id)
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
       redirect_to root_path
     else
-      render 'address#new'
+      render :new
     end
   end
 
