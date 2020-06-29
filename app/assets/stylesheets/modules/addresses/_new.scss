@@ -1,13 +1,22 @@
+.address-new-title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .address-frame {
   display: block;
   border: 1px solid $textColor;
   border-radius: 4px 4px 4px 4px;
-  width: 30%;
+  width: 50%;
   height: 43px;
   padding-left: 10px;
+  margin: 0 auto;
 }
 .address-flex {
   @include titleFlex;
+  width: 50%;
+  margin: 0 auto;
 }
 .addresses-text {
   @include title;
@@ -32,8 +41,8 @@
   display: block;
   border: 1px solid $textColor;
   border-radius: 4px 4px 4px 4px;
-  width: 30%;
+  width: 50%;
   height: 43px;
-  padding-left: 10px;
   color: white;
+  margin: 16px auto;
 }
