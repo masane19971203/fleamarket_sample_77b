@@ -86,3 +86,4 @@ gem 'font-awesome-sass'
 #サーバーサイド側関連
 gem 'ancestry'
 gem 'active_hash'
+gem 'payjp'
