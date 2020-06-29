@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:nickname, :comment)
+    params.require(:user).permit(:nickname, :comment).merge(without_validate: true)
   end
 end
 
