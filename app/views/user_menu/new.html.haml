@@ -11,12 +11,16 @@
           = image_tag "header/logo.png", size: "64x64"
         .content__product__items__name
           必ず幸せになれる不思議な壺
-          %p¥128,000（税込）送料込み
+          %p
+            ¥128,000
+            -# = number_to_currency(@product.price)
+            （税込）送料込み
     .content__price
       .content__price__show
         支払い金額
       .content__price__shipping-fee
         ¥128,000
+        -# = number_to_currency(@product.price)
     .content__credit    
       .content__credit__title
         支払い方法
@@ -38,11 +42,14 @@
           変更する  
       .content__address__box
         .content__address__box__zip
-        〒819-1335
+          〒819-1335
+          -# = @product.user.adress.zip
         .content__address__box__number
-        福岡県糸島市志摩芥屋1-1
+          福岡県糸島市志摩芥屋1-1
+          -# = @product.user.adress.number
         .content__address__box__name
-        田中知樹
+          田中知樹
+          -# = @product.user.name
     .content__buy
       .content__buy__btn
         =link_to "", class:"content__buy__btn__submit" do
