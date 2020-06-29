@@ -105,8 +105,6 @@ ActiveRecord::Schema.define(version: 2020_06_26_061731) do
     t.date "dob", null: false
     t.text "comment"
     t.string "phonenumber"
-    t.string "sex"
-    t.string "icon"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

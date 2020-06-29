@@ -14,8 +14,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.date   :dob,                null: false
       t.text   :comment
       t.string :phonenumber
-      t.string :sex
-      t.string :icon
 
       ## Recoverable
       t.string   :reset_password_token
