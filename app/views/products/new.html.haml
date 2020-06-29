@@ -41,8 +41,7 @@
         .products-new__contents__form__detail__size.hidden-size
           %p.products-new__contents__form__detail__size__text サイズ
           %p.products-new__contents__form__detail__size__alert 必須
-        = f.collection_select :size_id, Size.all, :id, :text, prompt: "選択してください", class: 'products-new__contents__form__detail__select category-select hidden3'
-        -# =f.select :aaaaaa, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select hidden3' }
+        =f.collection_select :size_id, Size.all, :id, :text, { prompt: "選択してください" }, { class: 'products-new__contents__form__detail__select category-select hidden3' }
         .products-new__contents__form__detail__brand
           %p.products-new__contents__form__detail__brand__text ブランド
           %p.products-new__contents__form__detail__brand--any 任意
@@ -51,25 +50,23 @@
         .products-new__contents__form__detail__status
           %p.products-new__contents__form__detail__status__text 商品の状態
           %p.products-new__contents__form__detail__status__alert 必須
-         = f.collection_select :status_id, Status.all, :id, :text, prompt: "選択してください", class: 'products-new__contents__form__detail__select category-select'
-        -# =f.select :aaaaaa, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select' }
+        = f.collection_select :status_id, Status.all, :id, :text, { prompt: "選択してください" }, { class: 'products-new__contents__form__detail__select category-select' }
       .products-new__contents__form__shipping
         %p.products-new__contents__form__shipping__title 配送について
         .products-new__contents__form__shipping__category
           %p.products-new__contents__form__shipping__category__text 配送料の負担
           %p.products-new__contents__form__shipping__category__alert 必須
-         = f.collection_select :postage_id, Postage.all, :id, :text, prompt: "選択してください", class: 'products-new__contents__form__shipping__select category-select'
+        = f.collection_select :postage_id, Postage.all, :id, :text, { prompt: "選択してください" }, { class: 'products-new__contents__form__shipping__select category-select' }
         -# =f.select :aaaaaa, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__shipping__select category-select' }
         .products-new__contents__form__shipping__brand
           %p.products-new__contents__form__shipping__brand__text 発送元の地域
           %p.products-new__contents__form__shipping__brand__alert 必須
-        -# ↓後でcollection_selectメソッドに変更,カラム名も適切な物に変更して下さい
-        =f.select :aaaaaa, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__shipping__select category-select' }
+        = f.collection_select :area_id, Area.all, :id, :name, { prompt: "選択してください" }, { class: 'contents__form__shipping__select category-select' }
         .products-new__contents__form__shipping__status
           %p.products-new__contents__form__shipping__status__text 発送までの日数
           %p.products-new__contents__form__shipping__status__alert 必須
         -# ↓後でcollection_selectメソッドに変更,カラム名も適切な物に変更して下さい
-        =f.select :aaaaaa, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__shipping__select category-select' }
+        = f.collection_select :shipping_date_id, Shippingdate.all, :id, :text, { prompt: "選択して下さい" }, { class: 'products-new__contents__form__shipping__select category-select' }
       .products-new__contents__form__price
         %p.products-new__contents__form__price__title 価格（￥300〜9,999,999）
         .products-new__contents__form__price__box
@@ -79,7 +76,7 @@
           .products-new__contents__form__price__box__right
             %span.products-new__contents__form__price__box__right__yen  ￥
             -# ↓カラム名未指定
-            =f.number_field :aaaaaa, placeholder: '0', class: 'products-new__contents__form__price__box__right__numinput', min: 300, max: 9999999
+            =f.number_field :price, placeholder: '0', class: 'products-new__contents__form__price__box__right__numinput', min: 300, max: 9999999
         .products-new__contents__form__price__fee
           %span.products-new__contents__form__price__fee__text 販売手数料（10％）
           .products-new__contents__form__price__fee__num ー
