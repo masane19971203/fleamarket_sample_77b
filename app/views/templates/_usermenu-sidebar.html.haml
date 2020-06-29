@@ -44,7 +44,10 @@
   %ul.user-menu__main__list__setting
     設定
     %li
-      = render "templates/list", code:301 ,name:"プロフィール"
+      = link_to edit_user_path(current_user), class:"user-menu__main__list__mypage--link" do
+        = "プロフィール"       
+        .user-menu__main__list__mypage__arrow
+          ＞
     %li
       = link_to new_user_address_path(current_user), class:"user-menu__main__list__mypage--link" do
         = "発送元・お届け先住所変更"       
