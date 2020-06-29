@@ -5,4 +5,6 @@ class Size < ActiveHash::Base
     {id: 3, text: 'Mサイズ'},
     {id: 4, text: 'Lサイズ'}
   ]
+  include ActiveHash::Associations
+  has_many :product
 end
