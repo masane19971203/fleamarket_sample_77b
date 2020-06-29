@@ -82,6 +82,8 @@ end
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+gem 'carrierwave'
+gem 'mini_magick'
 
 #サーバーサイド側関連
 gem 'ancestry'

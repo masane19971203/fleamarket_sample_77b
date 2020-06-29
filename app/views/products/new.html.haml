@@ -16,7 +16,8 @@
               ドラッグアンドドロップ
               %br
               またはクリックしてファイルをアップロード
-          =f.file_field :image, class: 'products-new__contents__form__image__select'
+          =f.fields_for :pictures do |i|
+            =f.file_field :image, class: 'products-new__contents__form__image__select'
       .products-new__contents__form__item
         .products-new__contents__form__item__box
           %p.products-new__contents__form__item__box__text 商品名
@@ -61,12 +62,14 @@
         .products-new__contents__form__shipping__brand
           %p.products-new__contents__form__shipping__brand__text 発送元の地域
           %p.products-new__contents__form__shipping__brand__alert 必須
-        = f.collection_select :area_id, Area.all, :id, :name, { prompt: "選択してください" }, { class: 'contents__form__shipping__select category-select' }
+        = f.collection_select :area_id, Area.all, :id, :name, { prompt: "選択してください" }, { class: 'products-new__contents__form__shipping__select category-select' }
+        -# =f.select :aaaaaa, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__shipping__select category-select' }
         .products-new__contents__form__shipping__status
           %p.products-new__contents__form__shipping__status__text 発送までの日数
           %p.products-new__contents__form__shipping__status__alert 必須
         -# ↓後でcollection_selectメソッドに変更,カラム名も適切な物に変更して下さい
-        = f.collection_select :shipping_date_id, Shippingdate.all, :id, :text, { prompt: "選択して下さい" }, { class: 'products-new__contents__form__shipping__select category-select' }
+        = f.collection_select :shipping_date_id, ShippingDate.all, :id, :text, { prompt: "選択して下さい" }, { class: 'products-new__contents__form__shipping__select category-select' }
+        -# =f.select :aaaaaa, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__shipping__select category-select' }
       .products-new__contents__form__price
         %p.products-new__contents__form__price__title 価格（￥300〜9,999,999）
         .products-new__contents__form__price__box
