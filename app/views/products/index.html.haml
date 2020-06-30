@@ -1,0 +1,21 @@
+= render 'templates/search-header', categories: @categories
+
+.product-list
+  .product-list__category
+
+    .product-list__category__name
+      カテゴリーの商品一覧
+      -# = "#{@category}の商品一覧"
+    .product-list__category__children
+      - (1..10).each_with_index do |child, index|
+        .product-list__category__children__links
+          = link_to "#", class:"product-list__category__children__links--link" do
+            子カテゴリー
+            -# = @children[index].name
+
+  .product-list__products
+    - (1..6).each do |product|
+      .product-list__products__overview
+        = render 'templates/product-overview'
+
+= render 'templates/download-footer'

@@ -28,11 +28,13 @@
 @import "modules/exhibition-btn";
 @import "modules/product-overview";
 @import "modules/toppage/top";
+@import "modules/products/index";
 @import "modules/products/new";
 @import "modules/products/create";
+@import "modules/products/show";
 @import "modules/user-menu/usermenu-sidebar";
 @import "modules/user-menu/user-menu";
-@import "modules/detail-products/detail-products.scss";
+
 @import "purchase/complete";
 @import "purchase/confirmation";
 
