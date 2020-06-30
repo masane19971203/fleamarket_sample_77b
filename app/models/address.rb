@@ -6,6 +6,8 @@ class Address < ApplicationRecord
   validates :zip, presence: true, length: { is: 7 }
   validates :area_id, presence: true
   validates :user_id, presence: true
+  validates :city, presence: true
+  validates :number, presence: true
 
   belongs_to :user
 
