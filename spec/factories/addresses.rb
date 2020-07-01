@@ -9,6 +9,7 @@ FactoryBot.define do
     number {Gimei.town.to_s}
     zip {Faker::Number.number(digits: 7)}
     phonenumber {Faker::PhoneNumber.phone_number}
+    building {Faker::Address.secondary_address}
     area_id {Faker::Number.between(from: 1, to: 47)}
   end
 end
