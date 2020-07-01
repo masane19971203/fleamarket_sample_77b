@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :user_menu, only: [:index, :show, :new, :create]
 
-  resources :products, only: [:index, :show, :new, :create]
+  resources :products, only: [:index, :show]
 
   resources :users, only: [:index, :show, :new, :edit, :update] do
     resources :addresses, only: [:new, :create, :update]
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :users do
     get "/products", to: "products#user_index"
+    resources :products, only: [:new, :create]
   end
 
   resources :exhibition, only: [:index] 
