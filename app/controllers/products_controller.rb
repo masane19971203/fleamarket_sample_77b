@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
 
   def index
-
+    @products = Product.all
+    @categories = Category.where(ancestry: nil)
   end
 
   def new
@@ -13,5 +14,8 @@ class ProductsController < ApplicationController
   def show
     @categories = Category.where(ancestry: nil)
   end
-  
+
+  def destroy
+    
+  end
 end

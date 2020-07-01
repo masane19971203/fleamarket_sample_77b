@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'toppage#index'
+  # root 'toppage#index'
+  root 'products#index'
 
   resources :user_menu, only: [:index, :show, :new, :create]
 
