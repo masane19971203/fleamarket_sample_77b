@@ -73,4 +73,9 @@ $(function(){
       $(".hidden3").val('');
     }
   });
+
+
+  $(".product-list__categories__back-to-top").on("click",function(){
+    $('body, html').animate({scrollTop: 0}, 300, 'linear');
+  });
 });

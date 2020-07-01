@@ -1,5 +1,7 @@
 = render 'templates/search-header', categories: @categories
 
+= render 'product-level', level: @level, category: @category
+
 .detail
   = render 'templates/exhibition-btn'
   .detail__wrapper

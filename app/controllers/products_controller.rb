@@ -2,36 +2,35 @@ class ProductsController < ApplicationController
   before_action :get_categories, only: [:index, :show]
 
   def index
+    @categories = Category.where(ancestry: nil)
+    
+    @products = Product.new
+    @children = Category.new
+    @level = nil
+    # 特定のカテゴリのみ閲覧
+    unless(params[:all_view] == 'true')
+      @view_all = false
+      @category = Category.find(params[:id])
 
-    # @category = Category.find(params[:id])
-    # @products = Product.new
-    # @children = Category.new
+      case @level = @category.depth
+      # 親カテゴリーの場合    
+      when 0
+        @children = @category.children
+        @products = Product.where(category_id: @category.indirects.ids)
 
-    # # 親カテゴリーの場合
-    # if(@category.ancestry == nil)
-    #   @children = @category.children
+      when 1
+        @children = @category.children
+        @products = Product.where(category_id: @children.ids)
+       
+      when 2
+        @products = Product.where(category_id: params[:id])
+      else
+        
+      end
 
-    #   @children.each do |child|
-    #     child.children.each do |g_child|
-    #       @products << Product.where(category_id: g_child.id)
-    #     end
-    #   end
-    # else
-    #   # 子カテゴリーの場合
-    #   if(@category.ancestry.to_i >= 1)
-    #     children = @category.children
-    #     @children = children.children
-
-    #     children.each do |child|
-    #       @products << Product.where(category_id: child.id)
-    #     end
-
-    #   # 孫カテゴリー選択の場合
-    #   else
-    #     @products = Product.where(category_id: params[:id])
-    #   end
-    # end 
-
+    else
+      @view_all = true
+    end
   end
 
   def new
@@ -41,7 +40,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-   
+    binding.pry
+    @category = Category.find(params[:id])
+    @level = @category.depth
   end
   
   private 
