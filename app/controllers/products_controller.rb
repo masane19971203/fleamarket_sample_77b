@@ -14,17 +14,9 @@ class ProductsController < ApplicationController
     @category2 = []
     @category3 = []
 
+    # 親レコードを取得
     @categories.each do |root|
-      # 親レコードを取得
       @category1.push([root.name, root.id])
-
-      # root.children.each do |child|
-      #   @category2.push([child.name, child.id])
-
-      #   child.children.each do |g_child|
-      #     @category3.push([g_child.name, g_child.id])
-      #   end
-      # end
     end
     
 
@@ -46,6 +38,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image])
+    params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image])
   end
 end
