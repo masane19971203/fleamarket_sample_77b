@@ -22,6 +22,11 @@ class ProductsController < ApplicationController
     @categories = Category.where(ancestry: nil)
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+  end
+
   private
 
   def product_params
