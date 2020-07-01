@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_143218) do
+ActiveRecord::Schema.define(version: 2020_06_29_093826) do
+# ActiveRecord::Schema.define(version: 2020_06_29_025719) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -73,7 +74,6 @@ ActiveRecord::Schema.define(version: 2020_07_01_143218) do
     t.boolean "purchase", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
     t.index ["area_id"], name: "index_products_on_area_id"
     t.index ["brand"], name: "index_products_on_brand"
     t.index ["category_id"], name: "index_products_on_category_id"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2020_07_01_143218) do
     t.index ["shipping_date_id"], name: "index_products_on_shipping_date_id"
     t.index ["size_id"], name: "index_products_on_size_id"
     t.index ["status_id"], name: "index_products_on_status_id"
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "shipping_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -125,5 +124,4 @@ ActiveRecord::Schema.define(version: 2020_07_01_143218) do
   end
 
   add_foreign_key "pictures", "products"
-  add_foreign_key "products", "users"
 end
