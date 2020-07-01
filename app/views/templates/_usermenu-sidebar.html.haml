@@ -16,7 +16,10 @@
     %li
       = render "templates/list", code:106 ,name:"下書き一覧"
     %li
-      = render "templates/list", code:107 ,name:"出品した商品-出品中"
+      = link_to user_products_path(current_user), class:"user-menu__main__list__mypage--link" do
+        出品した商品-出品中
+        .user-menu__main__list__mypage__arrow
+          ＞
     %li
       = render "templates/list", code:108 ,name:"出品した商品-取引中"
     %li
