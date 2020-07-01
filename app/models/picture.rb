@@ -1,4 +1,6 @@
 class Picture < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  serialize :images, ActiveRecord::Type::Json.new
+
+  mount_uploaders :images, ImageUploader
   belongs_to :product
 end

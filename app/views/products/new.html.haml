@@ -17,7 +17,7 @@
               %br
               またはクリックしてファイルをアップロード
           =f.fields_for :pictures do |i|
-            =i.file_field :image, class: 'products-new__contents__form__image__select'
+            =i.file_field :images,input_html: { multiple: true }, class: 'products-new__contents__form__image__select'
       .products-new__contents__form__item
         .products-new__contents__form__item__box
           %p.products-new__contents__form__item__box__text 商品名
