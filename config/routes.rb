@@ -11,5 +11,9 @@ Rails.application.routes.draw do
     resources :addresses, only: [:new, :create, :update]
   end
 
+  resources :users do
+    get "/products", to: "products#user_index"
+  end
+
   resources :exhibition, only: [:index] 
 end
