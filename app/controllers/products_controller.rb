@@ -34,6 +34,10 @@ class ProductsController < ApplicationController
     @categories = Category.where(ancestry: nil)
   end
 
+  def user_index
+    @categories = Category.where(ancestry: nil)
+    @products = Product.where(user_id: params[:user_id])
+  end
   private
 
   def product_params
