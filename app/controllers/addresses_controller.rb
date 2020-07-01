@@ -3,6 +3,7 @@ class AddressesController < ApplicationController
   before_action :set_user, only: [:new, :create, :update ]
 
   def new
+    @categories = Category.where(ancestry: nil)
     if @address = Address.find_by(user_id: @user.id)
     else
       @address = Address.new
