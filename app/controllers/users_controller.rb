@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update]
   def edit
     @user = User.find(params[:id])
   end
@@ -16,6 +17,11 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:nickname, :comment).merge(without_validate: true)
+  end
+  def ensure_correct_user
+    if current_user.id != params[:id].to_i
+      redirect_to root_path
+    end
   end
 end
 
