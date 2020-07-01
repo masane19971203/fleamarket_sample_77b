@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
       @category1.push([root.name, root.id])
     end
     
-
+    redirect_to root_path
   end
 
   def create
