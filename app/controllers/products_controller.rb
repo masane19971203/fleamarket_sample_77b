@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    binding.pry
     @product.save
     
     redirect_to root_path
@@ -19,6 +18,23 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @categories = Category.where(ancestry: nil)
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def user_index
     @categories = Category.where(ancestry: nil)
   end
 
