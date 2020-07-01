@@ -49,7 +49,6 @@ $(function(){
 
       // 選択された親カテゴリーの子カテゴリーのみを表示させる
       var val = $(this).val();
-      console.log($(this).val());
       $.ajax({
         url:  '/exhibition',
         type: "GET",
@@ -58,7 +57,6 @@ $(function(){
       .done(function(data){
         $('.hidden1').empty();
         $.each(data.category, function(index, value){
-          console.log(data.category[index].id + '' + data.category[index].name);
           $('.hidden1').append(addoption(data.category[index]));
         })
 
@@ -77,10 +75,8 @@ $(function(){
     if ( $(this).val() != "" ) {
       $(".hidden2").css({"display": "block"})
 
-
       // 選択された子カテゴリーの孫カテゴリーのみを表示させる
       var val = $(this).val();
-      console.log($(this).val());
       $.ajax({
         url:  '/exhibition',
         type: "GET",
@@ -89,7 +85,6 @@ $(function(){
       .done(function(data){
         $('.hidden2').empty();
         $.each(data.category, function(index, value){
-          console.log(data.category[index].id + '' + data.category[index].name);
           $('.hidden2').append(addoption(data.category[index]));
         })
 
