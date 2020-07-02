@@ -10,16 +10,18 @@
           %p.products-new__contents__form__image__box__alert 必須
         .products-new__contents__form__image__title 最大10枚までアップロードできます
 
-        %label#image-form
-          .products-new__contents__form__image__area
-            =icon 'fa', 'camera', class: 'products-new__contents__form__image__area__icon'
-            %p.products-new__contents__form__image__area__text
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-          =f.fields_for :pictures do |i|
-            =i.file_field :image, class: 'products-new__contents__form__image__select'
-
+        .products-new__contents__form__image--field
+          .products-new__contents__form__image--field__previews
+          %label#image1.image-form
+            .products-new__contents__form__image__area
+              =icon 'fa', 'camera', class: 'products-new__contents__form__image__area__icon'
+              %p.products-new__contents__form__image__area__text
+                ドラッグアンドドロップ
+                %br
+                またはクリックしてファイルをアップロード
+            =f.fields_for :pictures do |i|
+              =i.file_field :image, class: 'products-new__contents__form__image__select'
+ 
       .products-new__contents__form__item
         .products-new__contents__form__item__box
           %p.products-new__contents__form__item__box__text 商品名

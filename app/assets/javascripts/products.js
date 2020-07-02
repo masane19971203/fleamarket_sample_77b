@@ -3,10 +3,30 @@ $(function(){
 
   var htmlSelect = `<div class="htmlText">選択して下さい</div>`
 
+  // 追加するカテゴリ選択肢のhtml
   function addoption(category) {
     var addselectoption = `<option value="${category.id}">${category.name}</option>`
     return addselectoption
   }
+
+  // 追加する画像用フォームのhtml
+  function addimagebox(){
+    var imagebox = `
+      <label class='image-form', id = 'image${$(".image-form").length + 1}'>
+        <div class="products-new__contents__form__image__area">
+          <i class="fa fa-camera products-new__contents__form__image__area__icon"></i>
+          </i>
+          <p class="products-new__contents__form__image__area__text">
+            ドラッグアンドドロップ
+            <br>
+            またはクリックしてファイルをアップロード
+          </p>
+        </div>
+        <input class="products-new__contents__form__image__select" type="file" name="product[ ][${$(".image-form").length}][image]" id="product_pictures_attributes_${$(".image-form").length}_image">
+      </label>`
+
+    return imagebox
+  } 
 
   // 商品の説明のテキストに入力時、入力した文字数を表示
   $(".contents__form__item__textarea").on('keyup', function() {
@@ -112,9 +132,36 @@ $(function(){
     }
   });
 
+  // 画像が選択された際のプレビュー処理
+  $(".products-new__contents__form__image--field").on('change', function(){  
+    var selecter = "product_pictures_attributes_"+($(".image-form").length-1)+"_image"
+    console.log(selecter);
 
-  $('.products-new__contents__form__image__select').on('change', function(){
-    console.log("test")
+    var file = $('#'+selecter).prop('files')[0];
+    var fileReader = new FileReader();
+
+
+    //読み込みが完了すると、srcにfileのURLを格納
+    fileReader.onloadend = function() {
+      var src = fileReader.result
+      var html= `
+        <div class='item-image' data-image="${file.name}">
+          <div class=' item-image__content'>
+            <div class='item-image__content--icon'>
+              <img src=${src} width="114" height="80" >
+            </div>
+          </div>
+        </div>`
+      //image_box__container要素の前にhtmlを差し込む
+      $('.products-new__contents__form__image--field__previews').append(html);
+    }
+    fileReader.readAsDataURL(file);
+
+    $('#'+ selecter).parent().addClass('hidden');
+
+    // 新しい画像フォームを表示
+    $(".products-new__contents__form__image--field").append(addimagebox())
+
   })
 
 });

@@ -1,5 +1,6 @@
 class ExhibitionController < ApplicationController
 
+  # 出品画面のカテゴリー選択に伴う非同期通信処理
   def index
     
     product = Category.find(params[:category_id])
