@@ -37,6 +37,6 @@ class ProductsController < ApplicationController
 
   def product_params
     binding.pry
-    params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [{images: []}])
+    params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:images])
   end
 end
