@@ -22,4 +22,4 @@
     -# ユーザーメニューのコンテンツ部分
     .user-menu__main__contents
       .user-products__title 出品中商品一覧
-      = render 'templates/user-products'
+      = render partial: 'templates/user-products', collection: @products, as: "product"
