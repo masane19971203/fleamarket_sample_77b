@@ -28,8 +28,8 @@
   - else
     = render 'category-list', category: @category
     .product-list__products
-      - (1..6).each do |product|
+      - @products.each_with_index do |product, n|
         .product-list__products__overview
-          = render 'templates/product-overview'
+          = render 'templates/product-overview', product: product, picture: @pictures[n]
 
 = render 'templates/download-footer'
