@@ -34,11 +34,11 @@
           %p.products-new__contents__form__detail__category__text カテゴリー
           %p.products-new__contents__form__detail__category__alert 必須
         -# ↓後でcollection_selectメソッドに変更,カラム名も適切な物に変更して下さい,jqueryの記述も変更する必要があります
-        =f.select :category_id, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select products-select' }
+        =f.select :category_id, @category1, { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select products-select' }
         -# ↓後でcollection_selectメソッドに変更,カラム名も適切な物に変更して下さい,jqueryの記述も変更する必要があります
-        =f.select :category_id, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select hidden1' }
+        =f.select :category_id, @category2, { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select hidden1' }
         -# ↓後でcollection_selectメソッドに変更,カラム名も適切な物に変更して下さい,jqueryの記述も変更する必要があります
-        =f.select :category_id, [ ["test1",1], ["test2", 2], ["test3", 3] ], { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select hidden2' }
+        =f.select :category_id, @category3, { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select hidden2' }
         .products-new__contents__form__detail__size.hidden-size
           %p.products-new__contents__form__detail__size__text サイズ
           %p.products-new__contents__form__detail__size__alert 必須
