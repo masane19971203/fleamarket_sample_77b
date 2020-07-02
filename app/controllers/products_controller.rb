@@ -7,12 +7,23 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.pictures.new
+
+    @categories = Category.where(ancestry: nil)
+
+    @category1 = []
+    @category2 = []
+    @category3 = []
+
+    # 親レコードを取得
+    @categories.each do |root|
+      @category1.push([root.name, root.id])
+    end
+    
   end
 
   def create
     @product = Product.new(product_params)
-    binding.pry
-    @product.save
+    @product.save!
     
     redirect_to root_path
     
