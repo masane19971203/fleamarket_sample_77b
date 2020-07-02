@@ -9,17 +9,8 @@
           %p.products-new__contents__form__image__box__text 出品画像
           %p.products-new__contents__form__image__box__alert 必須
         .products-new__contents__form__image__title 最大10枚までアップロードできます
-        %label
-          .products-new__contents__form__image__area
-            =icon 'fa', 'camera', class: 'products-new__contents__form__image__area__icon'
-            %p.products-new__contents__form__image__area__text
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-          =f.fields_for :pictures do |i|
-            =i.file_field :images, class: 'products-new__contents__form__image__select'
 
-        %label
+        %label#image-form
           .products-new__contents__form__image__area
             =icon 'fa', 'camera', class: 'products-new__contents__form__image__area__icon'
             %p.products-new__contents__form__image__area__text

@@ -112,4 +112,9 @@ $(function(){
     }
   });
 
+
+  $('.products-new__contents__form__image__select').on('change', function(){
+    console.log("test")
+  })
+
 });
