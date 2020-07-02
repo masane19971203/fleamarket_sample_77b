@@ -24,10 +24,18 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    if @product.save  
-      redirect_to root_path
-    else 
+    binding.pry
+
+    # 画像データがあるか
+    if params[:product][:pictures_attributes] != nil
+      if @product.save!  
+      else
+        binding.pry
+        redirect_to action: :new
+      end
+    else
       binding.pry
+      redirect_to action: :new
     end
   end
 
@@ -42,6 +50,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params  
+    
     params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image]).merge(user_id: current_user.id)
   end
 
