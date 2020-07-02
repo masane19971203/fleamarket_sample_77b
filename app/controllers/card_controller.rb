@@ -3,8 +3,9 @@ class CardController < ApplicationController
 
   #pCardのデータベースからデータを取り出す
   def new
-    # card = Card.where(user_id: current_user.id)
-    # redirect_to action: "show" if card.exists?
+    @categories = Category.where(ancestry: nil)
+    card = Card.where(user_id: current_user.id)
+    redirect_to action: "show" if card.exists?
   end
 
   #payjpとCardのデータベース作成を実施
@@ -23,7 +24,7 @@ class CardController < ApplicationController
       if @card.save
         redirect_to action: "show"
       else
-        redirect_to action: "pay"
+        redirect_to action: "create"
       end
     end
   end
