@@ -15,7 +15,5 @@ class Product < ApplicationRecord
   belongs_to_active_hash :area
   belongs_to_active_hash :postage
   belongs_to_active_hash :shipping_date
-
-  
-  
+  belongs_to_active_hash :status
 end
