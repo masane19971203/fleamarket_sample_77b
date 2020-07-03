@@ -3,7 +3,8 @@ class Product < ApplicationRecord
 
   has_many :pictures
   belongs_to :category
-
+  belongs_to :user
+  
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
   validates :name, :text, :price, :category_id, presence: true
