@@ -1,5 +1,7 @@
 = render 'templates/search-header', categories: @categories
 
+= render 'product-level', level: @level, category: @category
+
 .detail
   = render 'templates/exhibition-btn'
   .detail__wrapper
@@ -89,8 +91,11 @@
     .detail__wrapper__other-products
       .detail__wrapper__other-products__title
         キッズをもっと見る
-
-      = render 'templates/product-overview'
+      .detail__wrapper__other-products__list
+        - @products.each_with_index do |product, n|  
+          .detail__wrapper__other-products__list__overview    
+            = render 'templates/product-overview', product: product, picture: @pictures[n]
+    
       
 
 = render 'templates/download-footer'
