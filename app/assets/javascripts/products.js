@@ -132,6 +132,11 @@ $(function(){
     }
   });
 
+  //商品一覧の最上部までスクロールさせる
+  $(".product-list__categories__back-to-top").on("click",function(){
+    $('body, html').animate({scrollTop: 0}, 300, 'linear');
+  });
+
   //DataTransferオブジェクトで、データを格納する箱を作る
   var dataBox = new DataTransfer();
   var file_field = document.querySelector('input[type=file]')
@@ -208,5 +213,5 @@ $(function(){
     $('#image-box__container').show()
     $('#image-box__container').attr('class', `item-num-${num}`)
   })
-  
+
 });
