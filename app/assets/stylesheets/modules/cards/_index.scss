@@ -1,4 +1,4 @@
-.card-show__title {
+.card-index__title {
   font-size: 26px;
   text-align: center;
   font-weight: bold;
@@ -6,7 +6,7 @@
   padding: 10px 0 10px;
 }
 
-.card-show__box {
+.card-index__box {
   &__inf {
     display: block;
     text-align: center;
@@ -32,7 +32,7 @@
   cursor: pointer;
 }
 
-.card-show-registry-btn {
+.card-index-registry-btn {
   text-decoration: none;
   background-color: rgb(255, 2, 17);
   display: block;
