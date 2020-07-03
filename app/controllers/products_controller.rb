@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
 
     # 画像データがあるか
     if params[:product][:pictures_attributes] != nil
-      if @product.save!  
+      if @product.save  
       else
         redirect_to action: :new
       end
