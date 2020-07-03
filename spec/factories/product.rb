@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :product do
     
     name{Faker::Food.ingredient}
-    text{}
+    text{Faker::Quote.matz}
     price{Faker::Number.between(from: 300, to: 9999999)}
     brand{Faker::Company.name}
     category_id {Faker::Number.between(from: 1, to: 1000)}

@@ -132,38 +132,6 @@ $(function(){
     }
   });
 
-  // 画像が選択された際のプレビュー処理    
-    // 改変前
-    // var selecter = "product_pictures_attributes_"+($(".image-form").length-1)+"_image"
-    // console.log(selecter);
-
-    // var file = $('#'+selecter).prop('files')[0];
-    // var fileReader = new FileReader();
-
-
-    // //読み込みが完了すると、srcにfileのURLを格納
-    // fileReader.onloadend = function() {
-    //   var src = fileReader.result
-    //   var html= `
-    //     <div class='item-image' data-image="${file.name}">
-    //       <div class=' item-image__content'>
-    //         <div class='item-image__content--icon'>
-    //           <img src=${src} width="114" height="80" >
-    //         </div>
-    //       </div>
-    //     </div>`
-    //   //image_box__container要素の前にhtmlを差し込む
-    //   $('.products-new__contents__form__image--field__previews').append(html);
-    // }
-    // fileReader.readAsDataURL(file);
-
-    // $('#'+ selecter).parent().addClass('hidden');
-
-    // // 新しい画像フォームを表示
-    // $(".products-new__contents__form__image--field").append(addimagebox())
-
-  // });
-
   //DataTransferオブジェクトで、データを格納する箱を作る
   var dataBox = new DataTransfer();
   var file_field = document.querySelector('input[type=file]')
@@ -202,11 +170,7 @@ $(function(){
         //image_box__container要素の前にhtmlを差し込む
         $('.products-new__contents__form__image--field__previews').append(html);
       };
-      //image-box__containerのクラスを変更し、CSSでドロップボックスの大きさを変えてやる。
-      // $('#image-box__container').attr('class', `item-num-${num}`)
-    });
-
-    
+    });    
   })
 
 

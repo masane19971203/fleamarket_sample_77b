@@ -6,7 +6,9 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
-  validates :name, :text, :price, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, :user_id, presence: true
+  validates :name,:text,  presence: true
+  validates :price, numericality:{greater_than: 300, less_than: 10000000}, presence: true
+  validates :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, :user_id, presence: true
 
   
   extend ActiveHash::Associations::ActiveRecordExtensions
