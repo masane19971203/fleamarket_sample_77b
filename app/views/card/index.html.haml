@@ -21,19 +21,19 @@
 
     -# ユーザーメニューのコンテンツ部分
     .user-menu__main__contents
-      .card-show__title 支払い方法
+      .card-index__title 支払い方法
       - if @card
-        .card-show__box
-          %label.card-show__box__inf 登録クレジットカード情報
+        .card-index__box
+          %label.card-index__box__inf 登録クレジットカード情報
           %br
-          .card-show__box__num= "**** **** **** " + @default_card_information.last4
+          .card-index__box__num= "**** **** **** " + @default_card_information.last4
           %br
           - exp_month = @default_card_information.exp_month.to_s
           - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-          .card-show__box__date= exp_month + " / " + exp_year
+          .card-index__box__date= exp_month + " / " + exp_year
           = form_tag("/card/card/#{@card.id}", method: :delete, id: 'charge-form',  name: "inputForm") do
             %input{ type: "hidden", name: "card_id", value: "" }
             %button.delete-btn 削除する
       - else
-        = link_to "カード情報を登録する", new_card_path, class: "card-show-registry-btn"
+        = link_to "カード情報を登録する", new_card_path, class: "card-index-registry-btn"
           
