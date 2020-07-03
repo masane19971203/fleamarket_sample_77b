@@ -5,10 +5,9 @@
   .detail__wrapper
     .detail__wrapper__product
       .detail__wrapper__product__name
-        商品サンプル
+        = @product.name
       .detail__wrapper__product__picts
         .detail__wrapper__product__picts__main
-          メインピクチャ
         %ul.detail__wrapper__product__picts__subs
           %li.detail__wrapper__product__picts__subs__li
             サブピクチャ1
@@ -20,15 +19,16 @@
             サブピクチャ4
 
       .detail__wrapper__product__price
-        ¥30,000
-      (税込)送料込み
+        = @product.price
+      円(税込)送料込み
       .detail__wrapper__product__text
         本商品の説明文
+        = @product.text
 
       %table.detail__wrapper__product__info{border: "1"}
         %tr
           %th 出品者
-          %td yamada
+          %td 手越
         %tr
           %th カテゴリー
           %td 
@@ -39,21 +39,27 @@
         %tr
           %th ブランド
           %td
+            = @product.brand
         %tr
           %th 商品のサイズ
           %td
+            = @product.size
         %tr
           %th 商品の状態
-          %td 未使用に近い
+          %td 
+            = @product.status
         %tr
           %th 配送料の負担
-          %td 送料込み（出品者負担）
+          %td 
+            = @product.postage
         %tr
           %th 発送元の地域
-          %td 岩手県
+          %td 
+            = @product.area
         %tr
           %th 発送の目安
-          %td 4-7日で発送
+          %td 
+            = @product.sipping_date
 
       .detail__wrapper__product__under
         .detail__wrapper__product__under__favorite

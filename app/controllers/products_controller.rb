@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
     @categories = Category.where(ancestry: nil)
   end
 
