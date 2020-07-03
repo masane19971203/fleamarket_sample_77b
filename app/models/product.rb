@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   
 
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
   belongs_to :category
 
   accepts_nested_attributes_for :pictures, allow_destroy: true
