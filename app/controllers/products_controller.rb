@@ -24,17 +24,13 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-    binding.pry
-
     # 画像データがあるか
     if params[:product][:pictures_attributes] != nil
       if @product.save!  
       else
-        binding.pry
         redirect_to action: :new
       end
     else
-      binding.pry
       redirect_to action: :new
     end
   end

@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# 事前にテスト用DBのcategoryテーブルにデータを入れておくこと
+
 RSpec.describe Product, type: :model do
   describe '#create' do
     context 'productを保存できる場合' do
