@@ -151,6 +151,16 @@
         @include set_bold_string(20px);
         margin-bottom: 20px;
       }
+
+      &__list{
+        display: flex;
+        flex-wrap: wrap;
+        overflow: scroll;
+        
+        &__overview{
+          margin-right: 10px;
+        }
+      }
     }
   }
 }
