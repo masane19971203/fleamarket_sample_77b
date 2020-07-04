@@ -44,5 +44,23 @@ class CardController < ApplicationController
     end
       redirect_to action: "index"
   end
-
+  def buy
+    @product = Product.find(params[:product_id])
+    @card = Card.find_by(user_id: current_user.id)
+    if @product.purchase == true #もし購入済みなら
+      redirect_to root_path
+    elsif @card.blank? #カード情報が無い場合
+      redirect_to action: "new"
+    elsif current_user.address.blank? #届け先住所が無い場合
+      redirect_to new_user_address_path
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp::Charge.create(
+      amount: @product.price,
+      customer: @card.customer_id,
+      currency: 'jpy'
+      )
+      @product.update(purchase: true)
+    end
+  end
 end
