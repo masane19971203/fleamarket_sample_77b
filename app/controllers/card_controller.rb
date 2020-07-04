@@ -33,11 +33,11 @@ class CardController < ApplicationController
   end
 
   def destroy #PayjpとCardデータベースを削除します
-    if card
+    if @card
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
     end
       redirect_to action: "index"
   end
