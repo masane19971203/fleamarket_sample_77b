@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :get_categories, only: [:index, :show]
-
+  before_action :check_user_login, only: [:new, :create]
+  
   # 商品一覧画面の表示
   def index
     @categories = Category.where(ancestry: nil)   
@@ -59,9 +60,17 @@ class ProductsController < ApplicationController
   # 出品した商品の出品処理
   def create
     @product = Product.new(product_params)
-    @product.save!
-    
-    redirect_to root_path
+
+    # 画像データがあるか
+    if params[:product][:pictures_attributes] != nil
+      if @product.save  
+      else
+        redirect_to action: :new
+      end
+    else
+      redirect_to action: :new
+    end
+
   end
 
 
@@ -88,8 +97,14 @@ class ProductsController < ApplicationController
     @products = Product.group(:product_id).where(user_id: params[:user_id])
   end
 
-  def product_params
+  def product_params  
+    
     params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  # ログインしているかをチェックする
+  def check_user_login
+    redirect_to root_path unless user_signed_in?
   end
 
 end
