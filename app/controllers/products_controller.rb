@@ -31,8 +31,6 @@ class ProductsController < ApplicationController
       else
         
       end
-      # 画像一覧を取得
-      @pictures = Picture.group(:product_id).where(product_id: @products.ids)
 
     # 全カテゴリーを閲覧
     else

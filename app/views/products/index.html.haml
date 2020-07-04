@@ -30,6 +30,6 @@
     .product-list__products
       - @products.each_with_index do |product, n|
         .product-list__products__overview
-          = render 'templates/product-overview', product: product, picture: @pictures[n]
+          = render 'templates/product-overview', product: product
 
 = render 'templates/download-footer'
