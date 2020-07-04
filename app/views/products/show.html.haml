@@ -61,12 +61,18 @@
       .detail__wrapper__product__links
         - if user_signed_in? && current_user.id == @product.user_id
           .detail__wrapper__product__links__edit
-            = link_to "商品を編集する", "#", class: "detail__wrapper__product__links__edit__btn"
+            = link_to "商品を編集する", edit_product_path(@product), class: "detail__wrapper__product__links__edit__btn"
           .detail__wrapper__product__links__delete
-            = link_to "商品を削除する", "#", method: :delete, class: "detail__wrapper__product__links__delete__btn"
+            = link_to "商品を削除する", product_path(params[:id]), method: :delete, class: "detail__wrapper__product__links__delete__btn"
         - else
-          .detail__wrapper__product__links__buy
-            = link_to "購入画面に進む", "#", class: "detail__wrapper__product__links__buy__btn"
+          - if @product.purchase == false
+            .detail__wrapper__product__links__buy
+              = link_to "購入画面に進む", "#", class: "detail__wrapper__product__links__buy__btn"
+          - else
+            .detail__wrapper__product__links__status
+              .detail__wrapper__product__links__status__true
+                購入済の商品です
+
       .detail__wrapper__product__under
         .detail__wrapper__product__under__favorite
           = icon('fas','star')
@@ -96,10 +102,10 @@
     .detail__wrapper__other-products
       .detail__wrapper__other-products__title
         キッズをもっと見る
-      -# .detail__wrapper__other-products__list
-      -#   - @products.each_with_index do |product, n|  
-      -#     .detail__wrapper__other-products__list__overview    
-      -#       = render 'templates/product-overview', product: product
+      .detail__wrapper__other-products__list
+        - @products.each_with_index do |product, n|  
+          .detail__wrapper__other-products__list__overview    
+            = render 'templates/product-overview', product: product
     
       
 

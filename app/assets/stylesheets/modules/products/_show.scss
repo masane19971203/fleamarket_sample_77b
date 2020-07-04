@@ -112,6 +112,19 @@
           color: white;
           line-height: 60px;
         }
+      }  
+      &__status{
+        height: 60px;
+        width: 60%;
+        background-color: gray;
+        text-align: center;
+        border-radius: 20px;
+        &__true{
+          text-decoration: none;
+          font-size: 22px;
+          color: white;
+          line-height: 60px;
+        }
       }
     }
     
