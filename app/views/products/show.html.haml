@@ -90,7 +90,7 @@
       .detail__wrapper__other-products__list
         - @products.each_with_index do |product, n|  
           .detail__wrapper__other-products__list__overview    
-            = render 'templates/product-overview', product: product, picture: @pictures[n]
+            = render 'templates/product-overview', product: product
     
       
 
