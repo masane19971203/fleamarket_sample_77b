@@ -36,6 +36,8 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find(params[:id])
     product.destroy
+    redirect_to user_menu_index_path
+    
   end
 
   def user_index
