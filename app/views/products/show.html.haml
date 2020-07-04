@@ -7,12 +7,11 @@
         = @product.name
       .detail__wrapper__product__picts
         .detail__wrapper__product__picts__main
-          -# -binding.pry
-          = image_tag @product.pictures[0].images.url
+          = image_tag @product.pictures[0].image.url, size: "600x400"
         %ul.detail__wrapper__product__picts__subs
         - @product.pictures.each do |image|
           %li
-            = image_tag image.images.url size: "140x140", class:"detail__wrapper__product__picts__subs__li"
+            = image_tag image.image.url, size: "140x140", class:"detail__wrapper__product__picts__subs__li"
       .detail__wrapper__product__price
         = @product.price
       円(税込)送料込み
@@ -59,7 +58,7 @@
           %td 
             = @product.shipping_date.text
       .detail__wrapper__product__links
-        - if current_user.id == @product.user_id
+        - if user_signed_in? && current_user.id == @product.user_id
           .detail__wrapper__product__links__edit
             = link_to "商品を編集する", "#", class: "detail__wrapper__product__links__edit__btn"
           .detail__wrapper__product__links__delete
@@ -67,7 +66,6 @@
         - else
           .detail__wrapper__product__links__buy
             = link_to "購入画面に進む", "#", class: "detail__wrapper__product__links__buy__btn"
-          
       .detail__wrapper__product__under
         .detail__wrapper__product__under__favorite
           = icon('fas','star')
