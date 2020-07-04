@@ -4,27 +4,22 @@ class CardController < ApplicationController
   #pCardのデータベースからデータを取り出す
   def new
     @categories = Category.where(ancestry: nil)
-    card = Card.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
+    @card = Card.find_by(user_id: current_user.id)
+    redirect_to action: "show" if @card
   end
 
   #payjpとCardのデータベース作成を実施
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    if params['payjp-token'].blank?
+    if params['payjptoken'].blank?
       redirect_to action: "new"
     else
-      customer = Payjp::Customer.create(
-      description: '登録テスト', #なくてもOK
-      email: current_user.email, #なくてもOK
-      card: params['payjp-token'],
-      metadata: {user_id: current_user.id}
-      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      customer = Payjp::Customer.create(card: params['payjptoken'])
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "index"
       else
-        redirect_to action: "create"
+        render "new"
       end
     end
   end
@@ -41,8 +36,7 @@ class CardController < ApplicationController
 
   def destroy #PayjpとCardデータベースを削除します
     card = Card.find_by(user_id: current_user.id)
-    if card.blank?
-    else
+    if card
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
@@ -50,4 +44,5 @@ class CardController < ApplicationController
     end
       redirect_to action: "index"
   end
+
 end
