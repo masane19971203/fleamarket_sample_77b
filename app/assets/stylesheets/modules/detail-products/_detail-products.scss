@@ -31,10 +31,10 @@
           @include set_boxes_to_horizontal(space-around);
           flex-wrap: wrap;
           overflow: scroll;
-
+          list-style-type: none;
           &__li{
             @include set_detailpage_box(120px,80px);
-            margin: 5px 2px;
+            margin: 5px 0px;
             display: inline;
           }
         }
@@ -194,16 +194,6 @@
         color: $top-color;
         @include set_bold_string(20px);
         margin-bottom: 20px;
-      }
-
-      &__list{
-        display: flex;
-        flex-wrap: wrap;
-        overflow: scroll;
-        
-        &__overview{
-          margin-right: 10px;
-        }
       }
     }
   }

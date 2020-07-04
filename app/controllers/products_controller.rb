@@ -69,12 +69,12 @@ class ProductsController < ApplicationController
     @categories = Category.where(ancestry: nil)
 
   # 商品詳細画面の表示
-    @category = Category.find(params[:category_id])
-    @level = @category.depth
+    # @category = Category.find(params[:category_id])
+    # @level = @category.depth
 
-    # 同一カテゴリの商品及び対応する写真一覧を取得
-    @products = Product.where(category_id: params[:category_id])
-    @pictures = Picture.group(:product_id).where(product_id: @products.ids)
+    # # 同一カテゴリの商品及び対応する写真一覧を取得
+    # @products = Product.where(category_id: params[:category_id])
+    # @pictures = Picture.group(:product_id).where(product_id: @products.ids)
   end
   
 
