@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
   before_action :get_categories, only: [:index, :show]
+  before_action :set_product, only: :show2
+  before_action :product_purchased, only: :show2
+  before_action :not_product_seller, only: :show2
 
   # 商品一覧画面の表示
   def index
@@ -76,7 +79,20 @@ class ProductsController < ApplicationController
     @products = Product.where(category_id: params[:category_id])
     @pictures = Picture.group(:product_id).where(product_id: @products.ids)
   end
-  
+
+  #購入確認画面の表示
+  def show2
+    if @card = current_user.card #現在のユーザーがカードを登録しているなら
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+      @expiration = card_expiration(@default_card_information)
+    end
+    if current_user.address.present? #現在のユーザーが届け先住所を登録しているなら
+      @zipcode = zipcode(current_user)
+      @user_address = user_address(current_user)
+    end
+  end
 
 
   private 
@@ -94,4 +110,30 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image]).merge(user_id: current_user.id)
   end
 
+  def zipcode(user)
+    str = user.address.zip.to_s
+    return str.insert(3, "-")
+  end
+
+  def user_address(user)
+    return user.address.area.name + user.address.city + user.address.number + user.address.building
+  end
+
+  def card_expiration(card_info)
+    exp_month = card_info.exp_month.to_s
+    exp_year = card_info.exp_year.to_s.slice(2,3)
+    return exp_month + " / " + exp_year
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def product_purchased
+    redirect_to root_path if @product.purchase == true #購入済みの場合、トップへリダイレクト
+  end
+
+  def not_product_seller
+    redirect_to root_path if @product.user.id == current_user.id #出品者と購入ユーザーが一致している場合,トップへリダイレクト
+  end
 end
