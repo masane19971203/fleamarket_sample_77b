@@ -112,7 +112,7 @@ class ProductsController < ApplicationController
   
   def user_index
     @categories = Category.where(ancestry: nil)
-    @products = Product.group(:product_id).where(user_id: params[:user_id])
+    @products = Product.group(:product_id).where(user_id: params[:user_id], purchase: false)
   end
 
   def product_params  
