@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: :show2
   before_action :product_purchased, only: :show2
   before_action :not_product_seller, only: :show2
-
+  before_action :check_user_login, only: [:new, :create]
+  
   # 商品一覧画面の表示
   def index
     @categories = Category.where(ancestry: nil)   
@@ -33,8 +34,6 @@ class ProductsController < ApplicationController
       else
         
       end
-      # 画像一覧を取得
-      @pictures = Picture.group(:product_id).where(product_id: @products.ids)
 
     # 全カテゴリーを閲覧
     else
@@ -64,18 +63,28 @@ class ProductsController < ApplicationController
   # 出品した商品の出品処理
   def create
     @product = Product.new(product_params)
-    @product.save!
-    
-    redirect_to root_path
+
+    # 画像データがあるか
+    if params[:product][:pictures_attributes] != nil
+      if @product.save  
+      else
+        redirect_to action: :new
+      end
+    else
+      redirect_to action: :new
+    end
+
   end
 
+  def show
+    @product = Product.find(params[:id])
+    @categories = Category.where(ancestry: nil)
 
   # 商品詳細画面の表示
-  def show   
     @category = Category.find(params[:category_id])
     @level = @category.depth
 
-    # 同一カテゴリの商品及び対応する写真一覧を取得
+    # # 同一カテゴリの商品及び対応する写真一覧を取得
     @products = Product.where(category_id: params[:category_id])
     @pictures = Picture.group(:product_id).where(product_id: @products.ids)
   end
@@ -106,7 +115,8 @@ class ProductsController < ApplicationController
     @products = Product.group(:product_id).where(user_id: params[:user_id])
   end
 
-  def product_params
+  def product_params  
+    
     params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image]).merge(user_id: current_user.id)
   end
 
@@ -135,5 +145,9 @@ class ProductsController < ApplicationController
 
   def not_product_seller
     redirect_to root_path if @product.user.id == current_user.id #出品者と購入ユーザーが一致している場合,トップへリダイレクト
+  end
+  # ログインしているかをチェックする
+  def check_user_login
+    redirect_to root_path unless user_signed_in?
   end
 end

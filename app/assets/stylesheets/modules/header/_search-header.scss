@@ -81,7 +81,6 @@
               &--lv2{ 
                 display: none;      
                 @include set_category_list_position();
-
                 
                 &__content{
                   @include set_category_list_contents();
@@ -113,6 +112,10 @@
 
     &__user{
       display: flex ;
+
+      & a{
+        @include set_category_link_decoration
+      }
 
       &__login{
         margin-right: 20px;

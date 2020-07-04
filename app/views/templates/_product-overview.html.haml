@@ -1,7 +1,7 @@
 .product-overview
   .product-overview__image
     = link_to product_path(product.id, category_id: product.category_id) do
-      = image_tag picture.image.url, size:'190x150'
+      = image_tag product.pictures[0].image.url, size:'190x150'
   .product-overview__name
     -# 商品サンプル
     = product.name

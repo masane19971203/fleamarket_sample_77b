@@ -113,7 +113,7 @@
       .main__pickup__categories__products
         - @products.each_with_index do |product, n|
           .main__pickup__categories__products__item
-            = render 'templates/product-overview', product: product, picture: @pictures[n]
+            = render 'templates/product-overview', product: product
           
     .main__pickup__brand
       .main__pickup__brand__title
@@ -123,6 +123,6 @@
       %ul.main__pickup__brand__products
         - @products.each_with_index do |product, n|
           .main__pickup__brand__products__item
-            = render 'templates/product-overview', product: product, picture: @pictures[n]
+            = render 'templates/product-overview', product: product
 
 = render 'templates/download-footer'

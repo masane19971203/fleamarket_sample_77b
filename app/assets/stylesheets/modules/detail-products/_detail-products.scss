@@ -31,28 +31,16 @@
           @include set_boxes_to_horizontal(space-around);
           flex-wrap: wrap;
           overflow: scroll;
-
+          list-style-type: none;
           &__li{
             @include set_detailpage_box(120px,80px);
-            margin: 5px 2px;
+            margin: 5px 0px;
             display: inline;
           }
         }
       }
       &__price{
         @include set_bold_string(35px);
-      }
-
-      &__purchase{
-        margin: 20px 0px;
-
-        &--link{
-          background-color: $top-color;
-          padding: 15px 120px;
-          color: #FFFFFF;
-          @include set_bold_string(24px);
-          text-decoration: none;
-        }
       }
 
       &__text{
@@ -119,19 +107,6 @@
         text-align: center;
         border-radius: 20px;
         &__btn{
-          text-decoration: none;
-          font-size: 22px;
-          color: white;
-          line-height: 60px;
-        }
-      }  
-      &__status{
-        height: 60px;
-        width: 60%;
-        background-color: gray;
-        text-align: center;
-        border-radius: 20px;
-        &__true{
           text-decoration: none;
           font-size: 22px;
           color: white;
@@ -219,16 +194,6 @@
         color: $top-color;
         @include set_bold_string(20px);
         margin-bottom: 20px;
-      }
-
-      &__list{
-        display: flex;
-        flex-wrap: wrap;
-        overflow: scroll;
-        
-        &__overview{
-          margin-right: 10px;
-        }
       }
     }
   }
