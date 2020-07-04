@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   describe '#create' do
     context 'productを保存できる場合' do
-      it '必須項目があれば保存できること' do
+      it '全項目が入力されていれば保存できること' do
         product = build(:product)
         expect(product).to be_valid
       end

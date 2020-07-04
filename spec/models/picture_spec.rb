@@ -10,7 +10,7 @@ RSpec.describe Picture, type: :model do
     end
 
     context 'pictureを保存できない場合' do
-      it '画像が１枚もないと保存できること' do
+      it '画像が１枚もないと保存できない' do
         picture = build(:picture, image: nil)
         picture.valid?
         expect(picture.errors[:image]).to include("can't be blank")
