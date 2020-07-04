@@ -116,35 +116,34 @@ class ProductsController < ApplicationController
   end
 
   def product_params  
-    
     params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image]).merge(user_id: current_user.id)
   end
 
-  def zipcode(user)
+  def zipcode(user) #郵便番号に-を入れ込む
     str = user.address.zip.to_s
     return str.insert(3, "-")
   end
 
-  def user_address(user)
+  def user_address(user) #ユーザー届け先住所を連結
     return user.address.area.name + user.address.city + user.address.number + user.address.building
   end
 
-  def card_expiration(card_info)
+  def card_expiration(card_info) #カード情報の有効期限をビュー表示用に変化
     exp_month = card_info.exp_month.to_s
     exp_year = card_info.exp_year.to_s.slice(2,3)
     return exp_month + " / " + exp_year
   end
 
-  def set_product
+  def set_product #商品情報を引っ張ってくる
     @product = Product.find(params[:id])
   end
 
-  def product_purchased
-    redirect_to root_path if @product.purchase == true #購入済みの場合、トップへリダイレクト
+  def product_purchased #購入済みの場合、トップへリダイレクト
+    redirect_to root_path if @product.purchase == true
   end
-
-  def not_product_seller
-    redirect_to root_path if @product.user.id == current_user.id #出品者と購入ユーザーが一致している場合,トップへリダイレクト
+  
+  def not_product_seller #出品者と購入ユーザーが一致している場合,トップへリダイレクト
+    redirect_to root_path if @product.user.id == current_user.id
   end
   # ログインしているかをチェックする
   def check_user_login
