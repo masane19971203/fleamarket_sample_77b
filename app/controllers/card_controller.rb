@@ -1,11 +1,11 @@
 class CardController < ApplicationController
   require "payjp"
-
+  
+  before_action :set_categories, only: [:index, :new]
+  before_action :set_card, only: [:new, :index, :destroy, :buy]
   #pCardのデータベースからデータを取り出す
   def new
-    @categories = Category.where(ancestry: nil)
-    @card = Card.find_by(user_id: current_user.id)
-    redirect_to action: "show" if @card
+    redirect_to card_index_path if @card
   end
 
   #payjpとCardのデータベース作成を実施
@@ -25,8 +25,6 @@ class CardController < ApplicationController
   end
 
   def index #Cardのデータpayjpに送り情報を取り出します
-    @categories = Category.where(ancestry: nil)
-    @card = Card.find_by(user_id: current_user.id)
     if @card
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -35,7 +33,6 @@ class CardController < ApplicationController
   end
 
   def destroy #PayjpとCardデータベースを削除します
-    card = Card.find_by(user_id: current_user.id)
     if card
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -46,7 +43,6 @@ class CardController < ApplicationController
   end
   def buy
     @product = Product.find(params[:product_id])
-    @card = Card.find_by(user_id: current_user.id)
     if @product.purchase == true #もし購入済みなら
       redirect_to root_path
     elsif @card.blank? #カード情報が無い場合
@@ -63,4 +59,12 @@ class CardController < ApplicationController
       @product.update(purchase: true)
     end
   end
+  private
+    def set_categories
+      @categories = Category.where(ancestry: nil)
+    end
+
+    def set_card
+      @card = Card.find_by(user_id: current_user.id)
+    end
 end
