@@ -49,7 +49,7 @@ class CardController < ApplicationController
     elsif @card.blank? #カード情報が無い場合
       redirect_to action: "new"
     elsif current_user.address.blank? #届け先住所が無い場合
-      redirect_to new_user_address_path
+      redirect_to new_user_address_path(current_user)
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       Payjp::Charge.create(
