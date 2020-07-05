@@ -9,10 +9,10 @@ describe CardController do
     before do
       payjp_customer = double("Payjp::Customer")
       payjp_list = double("Payjp::ListObject")
-      payjp_card = double("Payjp::Card")
+      payjp_card = double(exp_month: 12, exp_year: 2030)
       allow(Payjp::Customer).to receive(:retrieve).and_return(payjp_customer)
       allow(payjp_customer).to receive(:cards).and_return(payjp_list) 
-      allow(payjp_list).to receive(:retrieve).and_return(payjp_card) 
+      allow(payjp_list).to receive(:retrieve).and_return(payjp_card)
     end
     it '@cardに正しい値が入っていること' do
       card = create(:card, user_id: user.id)
@@ -27,16 +27,16 @@ describe CardController do
         get :new
         expect(assigns(:card)).to eq card
       end
-      it 'showへのリダイレクトが行われること' do
+      it 'indexへのリダイレクトが行われること' do
         card = create(:card, user_id: user.id)
         get :new
-        expect(response).to redirect_to(action: "show")
+        expect(response).to redirect_to(card_index_path)
       end
     end
     context "cardが登録されていない場合" do
       it 'リダイレクトが行われないこと' do
         get :new
-        expect(response).not_to redirect_to(action: "show")
+        expect(response).not_to redirect_to(card_index_path)
       end
     end
   end
@@ -85,5 +85,57 @@ describe CardController do
       delete :destroy, params: { id: card.id, card_id: "" }
       expect(response).to redirect_to(action: "index")
     end
+  end
+  describe '#buy' do
+    before do
+      payjp_customer = double("Payjp::Customer")
+      # payjp_list = double("Payjp::ListObject")
+      # payjp_card = double("Payjp::Card")
+      allow(Payjp::Charge).to receive(:create).and_return(payjp_customer)
+      # allow(payjp_customer).to receive(:cards).and_return(payjp_list) 
+      # allow(payjp_list).to receive(:retrieve).and_return(payjp_card)
+    end
+    context '商品が購入済みの場合'
+    before do
+      # category = create(name: "test", ancestry: "1")
+    end
+    it 'rootへリダイレクトされること' do
+      user2 = create(:user)
+      category = create(:category)
+      product = create(:product, user_id: user2.id, purchase: true, category_id: category.id)      
+      post :buy, params: {product_id: product.id}
+      expect(response).to redirect_to(root_path)
+    end
+    context '商品が未購入で、カード情報がない場合' do
+      it 'newへリダイレクトされること' do
+        user2 = create(:user)
+        category = create(:category)
+        product = create(:product, user_id: user2.id, category_id: category.id)
+        post :buy, params: {product_id: product.id}
+        expect(response).to redirect_to(action: 'new')
+      end
+    end
+    context '商品が未購入、カード情報があるが届け先住所がない場合' do
+      it 'addressのnewに飛ぶこと' do
+        user2 = create(:user)
+        category = create(:category)
+        product = create(:product, user_id: user2.id, category_id: category.id)
+        card = create(:card, user_id: user.id)
+        post :buy, params: {product_id: product.id}
+        expect(response).to redirect_to(new_user_address_path(user))
+      end
+    end
+    context '商品が未購入、カード情報、届け先住所がある場合' do
+      it '@productに正しい値が入っていること' do
+        user2 = create(:user)
+        category = create(:category)
+        product = create(:product, user_id: user2.id, category_id: category.id)
+        card = create(:card, user_id: user.id)
+        address = create(:address, user_id: user.id)
+        post :buy, params: {product_id: product.id}
+        expect(assigns(:product)).to eq product
+      end
+    end
+
   end
 end
