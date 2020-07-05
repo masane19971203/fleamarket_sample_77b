@@ -29,13 +29,14 @@ class CardController < ApplicationController
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
+      @card_exp = card_expiration(@default_card_information)
     end
   end
 
   def destroy #PayjpとCardデータベースを削除します
     if @card
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
       @card.delete
     end
@@ -66,5 +67,11 @@ class CardController < ApplicationController
 
     def set_card
       @card = Card.find_by(user_id: current_user.id)
+    end
+
+    def card_expiration(card_info) #カード情報の有効期限をビュー表示用に変化
+      exp_month = card_info.exp_month.to_s
+      exp_year = card_info.exp_year.to_s.slice(2,3)
+      return exp_month + " / " + exp_year
     end
 end
