@@ -105,6 +105,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    product = Product.find(params[:id])
+    if product
+      product.destroy
+    end
+    redirect_to user_menu_index_path 
+  end
+
 
   private 
 
