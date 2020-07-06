@@ -94,7 +94,7 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       if @card = current_user.card #現在のユーザーがカードを登録しているなら
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @default_card_information = customer.cards.retrieve(@card.card_id)
         @expiration = card_expiration(@default_card_information)
