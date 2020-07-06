@@ -1,9 +1,9 @@
 class AddressesController < ApplicationController
   before_action :ensure_correct_user, only: [:new, :create, :update]
   before_action :set_user, only: [:new, :create, :update ]
+  before_action :set_category, only: [:new, :create, :update]
 
   def new
-    @categories = Category.where(ancestry: nil)
     if @address = Address.find_by(user_id: @user.id)
     else
       @address = Address.new
@@ -20,7 +20,6 @@ class AddressesController < ApplicationController
   end
 
   def update
-    @categories = Category.where(ancestry: nil)
     @address = Address.find(params[:id])
     if @address.update(address_params)
       redirect_to root_path
@@ -43,5 +42,9 @@ class AddressesController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def set_category
+    @categories = Category.where(ancestry: nil)
   end
 end
