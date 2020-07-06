@@ -116,6 +116,16 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @categories = Category.where(ancestry: nil)
+
+    @category1 = []
+    @category2 = []
+    @category3 = []
+
+    # 親レコードを取得
+    @categories.each do |root|
+      @category1.push([root.name, root.id])
+    end
   end
 
   def update
