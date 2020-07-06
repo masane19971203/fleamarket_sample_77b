@@ -95,6 +95,10 @@ class ProductsController < ApplicationController
     redirect_to user_menu_index_path 
   end
 
+  def user_index
+    @categories = Category.where(ancestry: nil)
+    @products = Product.where(user_id: params[:user_id])
+  end
 
   private 
 
@@ -102,10 +106,6 @@ class ProductsController < ApplicationController
     @categories = Category.where(ancestry: nil)
   end
   
-  def user_index
-    @categories = Category.where(ancestry: nil)
-    @products = Product.group(:product_id).where(user_id: params[:user_id])
-  end
 
   def product_params  
     
