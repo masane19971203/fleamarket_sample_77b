@@ -9,7 +9,6 @@
           %p.products-new__contents__form__image__box__text 出品画像
           %p.products-new__contents__form__image__box__alert 必須
         .products-new__contents__form__image__title 最大10枚までアップロードできます
-
         .products-new__contents__form__image--field
           .products-new__contents__form__image--field__previews
           %label#image1.image-form
@@ -20,8 +19,8 @@
                 %br
                 またはクリックしてファイルをアップロード
             =f.fields_for :pictures do |i|
-              =i.file_field :image, name: "product[pictures_attributes][][image]", class: 'products-new__contents__form__image__select'
- 
+              =i.file_field :image, name: "product[pictures_attributes][][image]",value: @product.pictures[0].image, class: 'products-new__contents__form__image__select', id: "edit-field"
+              =i.hidden_field :image_cache, id:"chase-field"
       .products-new__contents__form__item
         .products-new__contents__form__item__box
           %p.products-new__contents__form__item__box__text 商品名
