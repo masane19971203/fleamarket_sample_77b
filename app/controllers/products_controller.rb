@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :get_categories, only: [:index, :show]
   before_action :set_product, only: :show2
-  before_action :check_user_login, only: [:new, :create]
+  before_action :check_user_login, only: [:new, :create, :destroy]
   
   # 商品一覧画面の表示
   def index
@@ -74,15 +74,14 @@ class ProductsController < ApplicationController
 
   end
 
+  # 商品詳細画面の表示
   def show
     @product = Product.find(params[:id])
     @categories = Category.where(ancestry: nil)
-
-  # 商品詳細画面の表示
     @category = Category.find(params[:category_id])
     @level = @category.depth
 
-    # # 同一カテゴリの商品及び対応する写真一覧を取得
+    # 同一カテゴリの商品を取得
     @products = Product.where(category_id: params[:category_id])
   end
 
@@ -94,7 +93,7 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       if @card = current_user.card #現在のユーザーがカードを登録しているなら
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @default_card_information = customer.cards.retrieve(@card.card_id)
         @expiration = card_expiration(@default_card_information)
@@ -106,12 +105,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  # 出品している商品の削除処理
   def destroy
     product = Product.find(params[:id])
     if product
       product.destroy
     end
-    redirect_to user_menu_index_path 
+    redirect_to user_menu_path(id: 101, name: 'マイページ')
   end
 
   def edit
@@ -137,20 +137,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  # ユーザーメニューの出品情報を表示
   def user_index
     @categories = Category.where(ancestry: nil)
     @products = Product.where(user_id: params[:user_id])
   end
 
+
   private 
 
   def get_categories
     @categories = Category.where(ancestry: nil)
-  end
-  
-  def user_index
-    @categories = Category.where(ancestry: nil)
-    @products = Product.group(:product_id).where(user_id: params[:user_id], purchase: false)
   end
 
   def product_params  
