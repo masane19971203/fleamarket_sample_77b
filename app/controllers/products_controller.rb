@@ -116,6 +116,7 @@ class ProductsController < ApplicationController
 
   def user_index
     @categories = Category.where(ancestry: nil)
+    binding.pry
     @products = Product.where(user_id: params[:user_id])
   end
 
@@ -125,10 +126,11 @@ class ProductsController < ApplicationController
     @categories = Category.where(ancestry: nil)
   end
   
-  def user_index
-    @categories = Category.where(ancestry: nil)
-    @products = Product.group(:product_id).where(user_id: params[:user_id], purchase: false)
-  end
+  # def user_index
+  #   @categories = Category.where(ancestry: nil)
+  #   binding.pry
+  #   @products = Product.group(:product_id).where(user_id: params[:user_id], purchase: false)
+  # end
 
   def product_params  
     params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image]).merge(user_id: current_user.id)
