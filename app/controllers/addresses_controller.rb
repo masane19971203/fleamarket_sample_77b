@@ -20,6 +20,7 @@ class AddressesController < ApplicationController
   end
 
   def update
+    @categories = Category.where(ancestry: nil)
     @address = Address.find(params[:id])
     if @address.update(address_params)
       redirect_to root_path
