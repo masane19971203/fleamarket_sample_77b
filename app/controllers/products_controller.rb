@@ -116,7 +116,6 @@ class ProductsController < ApplicationController
 
   def user_index
     @categories = Category.where(ancestry: nil)
-    binding.pry
     @products = Product.where(user_id: params[:user_id])
   end
 
