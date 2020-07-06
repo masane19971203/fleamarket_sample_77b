@@ -101,12 +101,11 @@
 
     .detail__wrapper__other-products
       .detail__wrapper__other-products__title
-        キッズをもっと見る
+        = @product.category.name
+        をもっと見る
       .detail__wrapper__other-products__list
         - @products.each_with_index do |product, n|  
           .detail__wrapper__other-products__list__overview    
-            = render 'templates/product-overview', product: product
-    
-      
+            = render 'templates/product-overview', product: product      
 
 = render 'templates/download-footer'

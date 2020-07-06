@@ -83,7 +83,6 @@ class ProductsController < ApplicationController
 
     # # 同一カテゴリの商品及び対応する写真一覧を取得
     @products = Product.where(category_id: params[:category_id])
-    @pictures = Picture.group(:product_id).where(product_id: @products.ids)
   end
   
 

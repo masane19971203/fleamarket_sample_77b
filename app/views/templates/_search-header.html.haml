@@ -1,7 +1,8 @@
 .search-header
   .search-header__upper
     .search-header__upper__logo
-      = image_tag "header/logo.png", size:"140x40", class:"search-header__upper__logo__image"
+      = link_to root_path do
+        = image_tag "header/logo.png", size:"140x40", class:"search-header__upper__logo__image"
     .search-header__upper__form 
       = form_with url:'#', class:"search-header__upper__form__field"   do |form|
         .search-header__upper__form__field__input
