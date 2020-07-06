@@ -61,9 +61,9 @@
       .detail__wrapper__product__links
         - if user_signed_in? && current_user.id == @product.user_id
           .detail__wrapper__product__links__edit
-            = link_to "商品を編集する",  "#", class: "detail__wrapper__product__links__edit__btn"
+            = link_to "商品を編集する", edit_product_path(@product), class: "detail__wrapper__product__links__edit__btn"
           .detail__wrapper__product__links__delete
-            = link_to "商品を削除する", "#", method: :delete, class: "detail__wrapper__product__links__delete__btn"
+            = link_to "商品を削除する", product_path(@product), method: :delete, class: "detail__wrapper__product__links__delete__btn"
         - else
           - if @product.purchase == false
             .detail__wrapper__product__links__buy

@@ -114,6 +114,29 @@ class ProductsController < ApplicationController
     redirect_to user_menu_path(id: 101, name: 'マイページ')
   end
 
+  def edit
+    @product = Product.find(params[:id])
+    @categories = Category.where(ancestry: nil)
+
+    @category1 = []
+    @category2 = []
+    @category3 = []
+
+    # 親レコードを取得
+    @categories.each do |root|
+      @category1.push([root.name, root.id])
+    end
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   # ユーザーメニューの出品情報を表示
   def user_index
     @categories = Category.where(ancestry: nil)
