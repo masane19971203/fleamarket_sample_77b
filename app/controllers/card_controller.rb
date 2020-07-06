@@ -3,6 +3,7 @@ class CardController < ApplicationController
   
   before_action :set_categories, only: [:index, :new]
   before_action :set_card, only: [:new, :index, :destroy, :buy]
+  before_action :user_signed?
   #pCardのデータベースからデータを取り出す
   def new
     redirect_to card_index_path if @card
@@ -73,5 +74,10 @@ class CardController < ApplicationController
       exp_month = card_info.exp_month.to_s
       exp_year = card_info.exp_year.to_s.slice(2,3)
       return exp_month + " / " + exp_year
+    end
+    def user_signed?
+      if current_user.blank?
+        redirect_to new_user_session_path
+      end
     end
 end
