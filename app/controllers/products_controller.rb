@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :get_categories, only: [:index, :show]
   before_action :set_product, only: :show2
-  before_action :check_user_login, only: [:new, :create]
+  before_action :check_user_login, only: [:new, :create, :destroy]
   
   # 商品一覧画面の表示
   def index
@@ -74,15 +74,14 @@ class ProductsController < ApplicationController
 
   end
 
+  # 商品詳細画面の表示
   def show
     @product = Product.find(params[:id])
     @categories = Category.where(ancestry: nil)
-
-  # 商品詳細画面の表示
     @category = Category.find(params[:category_id])
     @level = @category.depth
 
-    # # 同一カテゴリの商品及び対応する写真一覧を取得
+    # 同一カテゴリの商品を取得
     @products = Product.where(category_id: params[:category_id])
   end
 
@@ -106,6 +105,7 @@ class ProductsController < ApplicationController
     end
   end
 
+  # 出品している商品の削除処理
   def destroy
     product = Product.find(params[:id])
     if product
@@ -114,22 +114,18 @@ class ProductsController < ApplicationController
     redirect_to user_menu_index_path 
   end
 
+  # ユーザーメニューの出品情報を表示
   def user_index
     @categories = Category.where(ancestry: nil)
     @products = Product.where(user_id: params[:user_id])
   end
+
 
   private 
 
   def get_categories
     @categories = Category.where(ancestry: nil)
   end
-  
-  # def user_index
-  #   @categories = Category.where(ancestry: nil)
-  #   binding.pry
-  #   @products = Product.group(:product_id).where(user_id: params[:user_id], purchase: false)
-  # end
 
   def product_params  
     params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id, pictures_attributes: [:image]).merge(user_id: current_user.id)
