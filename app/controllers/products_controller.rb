@@ -89,7 +89,9 @@ class ProductsController < ApplicationController
 
   #購入確認画面の表示
   def show2
-    if @product.user.id == current_user.id || @product.purchase == true #購入済みの場合または出品者と購入ユーザーが一致している場合
+    if current_user.blank?
+      redirect_to new_user_session_path
+    elsif @product.user.id == current_user.id || @product.purchase == true #購入済みの場合または出品者と購入ユーザーが一致している場合
       redirect_to root_path
     else
       if @card = current_user.card #現在のユーザーがカードを登録しているなら
