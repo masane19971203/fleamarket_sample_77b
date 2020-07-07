@@ -9,19 +9,36 @@
           %p.products-new__contents__form__image__box__text 出品画像
           %p.products-new__contents__form__image__box__alert 必須
         .products-new__contents__form__image__title 最大10枚までアップロードできます
+        #edit_item.products-new__contents__form__image--field
 
-        .products-new__contents__form__image--field
-          .products-new__contents__form__image--field__previews
-          %label#image1.image-form
-            .products-new__contents__form__image__area
-              =icon 'fa', 'camera', class: 'products-new__contents__form__image__area__icon'
-              %p.products-new__contents__form__image__area__text
-                ドラッグアンドドロップ
-                %br
-                またはクリックしてファイルをアップロード
-            =f.fields_for :pictures do |i|
-              =i.file_field :image, name: "product[pictures_attributes][][image]", class: 'products-new__contents__form__image__select'
- 
+          = f.fields_for :product_pictures, @product.pictures.first do |image|
+            .item__img__dropzone.clearfix
+              #preview
+              -# １〜５枚目プレビュー表示
+              .item__img__dropzone__input
+                = image.label :image, for: "upload-image" do
+                  .input-area
+                    = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+
+                  .item__img__dropzone__input__description
+                    .item__img__dropzone__input__description__text
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
+
+            .item__img__dropzone2.clearfix
+              #preview2
+              -# ６〜１０枚目プレビュー表示
+              .item__img__dropzone2__input2
+                = image.label :image, for: "upload-image" do
+                  .input-area
+                    = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+                  .item__img__dropzone2__input2__description
+                    .item__img__dropzone2__input2__description__text
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
+
       .products-new__contents__form__item
         .products-new__contents__form__item__box
           %p.products-new__contents__form__item__box__text 商品名
