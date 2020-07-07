@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :get_categories, only: [:index, :show]
   before_action :set_product, only: :show2
   before_action :check_user_login, only: [:new, :create, :destroy]
-  
+
   # 商品一覧画面の表示
   def index
     @categories = Category.where(ancestry: nil)   
@@ -116,6 +116,12 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @p_category = @product.category
+    if current_user.blank?
+      redirect_to new_user_session_path
+    elsif @product.user.id != current_user.id || @product.purchase == true
+      redirect_to root_path
+    end
     @categories = Category.where(ancestry: nil)
 
     @category1 = []
@@ -126,11 +132,38 @@ class ProductsController < ApplicationController
     @categories.each do |root|
       @category1.push([root.name, root.id])
     end
+    if @p_category.depth == 2
+      @p_category.parent.siblings.each do |child|
+        @category2.push([child.name, child.id])
+      end
+      @p_category.siblings.each do |grandchild|
+        @category3.push([grandchild.name, grandchild.id])
+      end
+    end
+    if @p_category.depth == 1
+      @p_category.siblings.each do |child|
+        @category2.push([child.name, child.id])
+      end
+    end
   end
 
   def update
     @product = Product.find(params[:id])
-    if @product.update(product_params)
+    @categories = Category.where(ancestry: nil)
+
+    @category1 = []
+    @category2 = []
+    @category3 = []
+
+    # 親レコードを取得
+    @categories.each do |root|
+      @category1.push([root.name, root.id])
+    end
+    if current_user.blank?
+      redirect_to new_user_session_path
+    elsif @product.user.id != current_user.id || @product.purchase == true
+      redirect_to root_path
+    elsif @product.update!(product_params)
       redirect_to root_path
     else
       render :edit
@@ -177,4 +210,5 @@ class ProductsController < ApplicationController
   def check_user_login
     redirect_to root_path unless user_signed_in?
   end
+
 end
