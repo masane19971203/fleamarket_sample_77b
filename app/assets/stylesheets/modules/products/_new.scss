@@ -304,14 +304,28 @@
 
 
 
-.item__img__dropzone{
-  display: flex;
+.item__img{
+  &__dropzone, &__dropzone2{
+    display: flex;
 
-  &__input{
-    background-color: #EEEEEE;
+    &__input, &__input2{
+      padding: 30px 0px;
+      background-color: #EEEEEE;
+
+      &__description{
+        &__text{
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+    }
   }
 }
 
-#preview{ display: flex; }
+#preview, #preview2{ display: flex; }
 
 #upload-image{display: none;}
+
+.item__img__dropzone2{
+  display: none;
+}

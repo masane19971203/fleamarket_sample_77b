@@ -164,6 +164,7 @@ class ProductsController < ApplicationController
     # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
     exist_ids.clear if exist_ids[0] == 0
 
+    # 何かしらの画像があり、かつ画像以外の情報が更新成功した場合
     if (exist_ids.length != 0 || new_image_params[:pictures][0] != " ") && @product.update(update_product_params)
 
       # 登録済画像のうち削除ボタンをおした画像を削除
@@ -180,6 +181,21 @@ class ProductsController < ApplicationController
         new_image_params[:pictures].each do |image|
           @product.pictures.create(image: image, product_id: @product.id)
         end
+      end
+      respond_to do |format|
+        format.json{ 
+          @status = 0
+          @id = current_user.id
+        } 
+      end
+
+    # 画像がないか画像以外の情報が更新失敗した場合
+    else
+      respond_to do |format|
+        format.json{ 
+          @status = 1
+          @id = @product.id
+        } 
       end
     end
   end

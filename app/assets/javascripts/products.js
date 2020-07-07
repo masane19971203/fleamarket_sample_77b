@@ -308,7 +308,7 @@ $(function(){
           'display': 'none'
         })
         appendzone.css({
-          'display': 'block'
+          'display': 'flex'
         })
         dropzone2.css({
           'display': 'block',
@@ -366,7 +366,7 @@ $(function(){
             preview.append(image);
           });
           appendzone.css({
-            display: "block"
+            display: "flex"
           });
           dropzone.css({
             display: "none"
@@ -526,6 +526,20 @@ $(function(){
           data:        formData,
           contentType: false,
           processData: false,
+        })
+        // 
+        .done(function(data){ 
+          console.log(data.status)
+          if(data.status == 0){
+             var url = '/users/'+data.id+ '/products' 
+          }
+          else{ 
+            var url = '/products/'+data.id+ '/edit'
+          }
+          window.location.href = url
+        })
+        .fail(function(){ 
+
         })
       });
     
