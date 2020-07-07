@@ -25,7 +25,6 @@
 
         &__main{
           @include set_detailpage_box(100%,400px);
-          background-color: gold;
         }
 
         &__subs{
@@ -35,13 +34,25 @@
 
           &__li{
             @include set_detailpage_box(120px,80px);
-            background-color: hotpink;
-            margin: 5px 0px;
+            margin: 5px 2px;
+            display: inline;
           }
         }
       }
       &__price{
         @include set_bold_string(35px);
+      }
+
+      &__purchase{
+        margin: 20px 0px;
+
+        &--link{
+          background-color: $top-color;
+          padding: 15px 120px;
+          color: #FFFFFF;
+          @include set_bold_string(24px);
+          text-decoration: none;
+        }
       }
 
       &__text{
@@ -68,6 +79,64 @@
           @include set_table_layout(75%,left);
           padding: 10px;
         }      
+      }
+    }
+
+    &__links{
+      display: flex;
+      justify-content: space-around;
+      padding-top: 20px;
+      &__edit{
+        height: 40px;
+        width: 35%;
+        background-color: red;
+        cursor: pointer;
+        border-radius: 20px;
+        &__btn{
+        text-decoration: none;
+        color: white;
+        line-height: 40px;
+        
+        }
+      }  
+      &__delete{
+        height: 40px;
+        width: 35%;
+        background-color: red;
+        cursor: pointer;
+        border-radius: 20px;
+        &__btn{
+        text-decoration: none;
+        color: white;
+        line-height: 40px;
+        }
+      }
+      &__buy{
+        height: 60px;
+        width: 60%;
+        background-color: red;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 20px;
+        &__btn{
+          text-decoration: none;
+          font-size: 22px;
+          color: white;
+          line-height: 60px;
+        }
+      }  
+      &__status{
+        height: 60px;
+        width: 60%;
+        background-color: gray;
+        text-align: center;
+        border-radius: 20px;
+        &__true{
+          text-decoration: none;
+          font-size: 22px;
+          color: white;
+          line-height: 60px;
+        }
       }
     }
     

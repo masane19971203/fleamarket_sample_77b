@@ -3,21 +3,25 @@
 .products-new
   .products-new__contents
     -# ↓コントローラ作成後,createページに飛ぶように指定して下さい(createのview作成済み)
-    =form_with model: @product, class: 'products-new__contents__form' do |f|
+    =form_with model: @product, local: true, class: 'products-new__contents__form' do |f|
       .products-new__contents__form__image
         .products-new__contents__form__image__box
           %p.products-new__contents__form__image__box__text 出品画像
           %p.products-new__contents__form__image__box__alert 必須
         .products-new__contents__form__image__title 最大10枚までアップロードできます
-        %label
-          .products-new__contents__form__image__area
-            =icon 'fa', 'camera', class: 'products-new__contents__form__image__area__icon'
-            %p.products-new__contents__form__image__area__text
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-          =f.fields_for :pictures do |i|
-            =i.file_field :image, class: 'products-new__contents__form__image__select'
+
+        .products-new__contents__form__image--field
+          .products-new__contents__form__image--field__previews
+          %label#image1.image-form
+            .products-new__contents__form__image__area
+              =icon 'fa', 'camera', class: 'products-new__contents__form__image__area__icon'
+              %p.products-new__contents__form__image__area__text
+                ドラッグアンドドロップ
+                %br
+                またはクリックしてファイルをアップロード
+            =f.fields_for :pictures do |i|
+              =i.file_field :image, name: "product[pictures_attributes][][image]", class: 'products-new__contents__form__image__select'
+ 
       .products-new__contents__form__item
         .products-new__contents__form__item__box
           %p.products-new__contents__form__item__box__text 商品名
