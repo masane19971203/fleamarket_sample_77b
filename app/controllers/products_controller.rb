@@ -126,14 +126,61 @@ class ProductsController < ApplicationController
     @categories.each do |root|
       @category1.push([root.name, root.id])
     end
+    
+    gon.product = @product
+    gon.product_pictures = @product.pictures
+
+    # @product.product_imagse.image_urlをバイナリーデータにしてビューで表示できるようにする
+    require 'base64'
+    require 'aws-sdk'
+
+    gon.product_pictures_binary_datas = []
+    if Rails.env.production?
+      client = Aws::S3::Client.new(
+                             region: 'ap-northeast-1',
+                             access_key_id: Rails.application.credentials.aws[:access_key_id],
+                             secret_access_key: Rails.application.credentials.aws[:secret_access_key],
+                             )
+      @product.pictures.each do |image|
+        binary_data = client.get_object(bucket: 'freemarket-sample-51a', key: image.image_url.file.path).body.read
+        gon.product_pictures_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    else
+      @product.pictures.each do |image|
+        binary_data = File.read(image.image.file.file)
+        gon.product_pictures_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    end
+    
   end
 
   def update
     @product = Product.find(params[:id])
-    if @product.update(product_params)
-      redirect_to root_path
-    else
-      render :edit
+
+    # 登録済画像のidの配列を生成
+    ids = @product.pictures.map{|image| image.id }
+    # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
+    exist_ids = registered_image_params[:ids].map(&:to_i)
+    # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
+    exist_ids.clear if exist_ids[0] == 0
+
+    if (exist_ids.length != 0 || new_image_params[:pictures][0] != " ") && @product.update(update_product_params)
+
+      # 登録済画像のうち削除ボタンをおした画像を削除
+      unless ids.length == exist_ids.length
+        # 削除する画像のidの配列を生成
+        delete_ids = ids - exist_ids
+        delete_ids.each do |id|
+          @product  .pictures.find(id).destroy
+        end
+      end
+
+      # 新規登録画像があればcreate
+      unless new_image_params[:pictures][0] == " "
+        new_image_params[:pictures].each do |image|
+          @product.pictures.create(image: image, product_id: @product.id)
+        end
+      end
     end
   end
 
@@ -177,4 +224,18 @@ class ProductsController < ApplicationController
   def check_user_login
     redirect_to root_path unless user_signed_in?
   end
+
+
+  def update_product_params
+    params.require(:product).permit(:name, :text, :price, :brand, :status, :category_id, :size_id, :status_id, :postage_id, :area_id, :shipping_date_id).merge(user_id: current_user.id)
+  end
+
+  def registered_image_params
+    params.require(:registered_images_ids).permit({ids: []})
+  end
+
+  def new_image_params
+    params.require(:new_images).permit({pictures: []})
+  end
+
 end

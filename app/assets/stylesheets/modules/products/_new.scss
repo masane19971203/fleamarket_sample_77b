@@ -300,3 +300,18 @@
 .category-select {
   background-color: white;
 }
+
+
+
+
+.item__img__dropzone{
+  display: flex;
+
+  &__input{
+    background-color: #EEEEEE;
+  }
+}
+
+#preview{ display: flex; }
+
+#upload-image{display: none;}
