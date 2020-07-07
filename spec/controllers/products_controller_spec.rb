@@ -63,4 +63,22 @@ describe ProductsController do
       end
     end
   end
+  describe 'GET #edit' do
+    context 'ログイン状態になっていない' do
+      it 'アクセスするとログインページに飛ぶこと' do
+        category = create(:category)
+        product = create(:product, user_id: user.id, category_id: category.id)
+        get :edit, params: { id: product.id }
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+    # context 'ログイン状態になっている' do
+
+    #   context '編集する商品が自分の出品した商品じゃない場合' do
+    #     it 'rootにリダイレクトされること' do
+
+    #     end
+    #   end
+    # end
+  end
 end

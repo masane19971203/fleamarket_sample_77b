@@ -54,16 +54,20 @@
         .products-new__contents__form__detail__category
           %p.products-new__contents__form__detail__category__text カテゴリー
           %p.products-new__contents__form__detail__category__alert 必須
-        -# ↓後でcollection_selectメソッドに変更,カラム名も適切な物に変更して下さい,jqueryの記述も変更する必要があります
-        =f.select :category_id, @category1, { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select products-select' }
-        -# ↓後でcollection_selectメソッドに変更,カラム名も適切な物に変更して下さい,jqueryの記述も変更する必要があります
-        =f.select :category_id, @category2, { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select hidden1' }
-        -# ↓後でcollection_selectメソッドに変更,カラム名も適切な物に変更して下さい,jqueryの記述も変更する必要があります
-        =f.select :category_id, @category3, { prompt: "選択して下さい" }, { class: 'products-new__contents__form__detail__select category-select hidden2' }
-        .products-new__contents__form__detail__size.hidden-size
-          %p.products-new__contents__form__detail__size__text サイズ
-          %p.products-new__contents__form__detail__size__alert 必須
-        =f.collection_select :size_id, Size.all, :id, :text, { prompt: "選択してください" }, { class: 'products-new__contents__form__detail__select category-select hidden3' }
+        =f.select :category_id, @category1, { selected: @product.category.parent.parent.id }, { class: 'products-new__contents__form__detail__select category-select products-select' }
+        =f.select(:category_id, @category2, { selected: @product.category.parent.id }, { class: 'products-new__contents__form__detail__select category-select hidden1 p-edit1' },)
+        -if @p_category.depth == 2
+          =f.select :category_id, @category3, { selected: @product.category.id }, { class: 'products-new__contents__form__detail__select category-select hidden2 p-edit2' }
+          .products-new__contents__form__detail__size.hidden-size.edit-box
+            %p.products-new__contents__form__detail__size__text サイズ
+            %p.products-new__contents__form__detail__size__alert 必須
+          =f.collection_select :size_id, Size.all, :id, :text, { prompt: "選択してください" }, { class: 'products-new__contents__form__detail__select category-select hidden3 p-edit3' }
+        -else 
+          =f.select :category_id, @category3, { selected: @product.category.id }, { class: 'products-new__contents__form__detail__select category-select hidden2' }
+          .products-new__contents__form__detail__size.hidden-size
+            %p.products-new__contents__form__detail__size__text サイズ
+            %p.products-new__contents__form__detail__size__alert 必須
+          =f.collection_select :size_id, Size.all, :id, :text, { prompt: "選択してください" }, { class: 'products-new__contents__form__detail__select category-select hidden3' }
         .products-new__contents__form__detail__brand
           %p.products-new__contents__form__detail__brand__text ブランド
           %p.products-new__contents__form__detail__brand--any 任意

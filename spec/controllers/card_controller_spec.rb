@@ -89,15 +89,10 @@ describe CardController do
   describe '#buy' do
     before do
       payjp_customer = double("Payjp::Customer")
-      # payjp_list = double("Payjp::ListObject")
-      # payjp_card = double("Payjp::Card")
       allow(Payjp::Charge).to receive(:create).and_return(payjp_customer)
-      # allow(payjp_customer).to receive(:cards).and_return(payjp_list) 
-      # allow(payjp_list).to receive(:retrieve).and_return(payjp_card)
     end
     context '商品が購入済みの場合'
     before do
-      # category = create(name: "test", ancestry: "1")
     end
     it 'rootへリダイレクトされること' do
       user2 = create(:user)
