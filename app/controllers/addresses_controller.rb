@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+  before_action :check_user_login, only: [:new, :create, :update]
   before_action :ensure_correct_user, only: [:new, :create, :update]
   before_action :set_user, only: [:new, :create, :update ]
   before_action :set_category, only: [:new, :create, :update]
@@ -47,4 +48,10 @@ class AddressesController < ApplicationController
   def set_category
     @categories = Category.where(ancestry: nil)
   end
+
+
+  def check_user_login
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
 end

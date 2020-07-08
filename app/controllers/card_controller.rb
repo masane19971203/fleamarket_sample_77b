@@ -75,6 +75,7 @@ class CardController < ApplicationController
       exp_year = card_info.exp_year.to_s.slice(2,3)
       return exp_month + " / " + exp_year
     end
+    
     def user_signed?
       if current_user.blank?
         redirect_to new_user_session_path

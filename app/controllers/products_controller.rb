@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :get_categories, only: [:index, :show]
   before_action :set_product, only: :show2
-  before_action :check_user_login, only: [:new, :create, :destroy]
+  before_action :check_user_login, only: [:new, :create, :edit, :update, :destroy]
   before_action :product_purchased, only: :update
 
   # 商品一覧画面の表示
@@ -254,7 +254,7 @@ class ProductsController < ApplicationController
 
   # ログインしているかをチェックする
   def check_user_login
-    redirect_to root_path unless user_signed_in?
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def update_product_params
