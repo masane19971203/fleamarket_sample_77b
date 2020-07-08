@@ -163,7 +163,7 @@ class ProductsController < ApplicationController
                              secret_access_key: Rails.application.credentials.aws[:aws_secret_access_key],
                              )
       @product.pictures.each do |image|
-        binary_data = client.get_object(bucket: 'f77b-furima-images', key: image.image_url.file.path).body.read
+        binary_data = client.get_object(bucket: 'f77b-furima-images', key: image.image.file.path).body.read
         gon.product_pictures_binary_datas << Base64.strict_encode64(binary_data)
       end
     else
