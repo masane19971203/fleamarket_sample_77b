@@ -470,7 +470,7 @@ $(function(){
       }
     })
 
-    $(".products-new__contents__form").on('submit', function(e){
+    $("#edit_form").on('submit', function(e){
       // 通常のsubmitイベントを止める
       e.preventDefault();
       // images以外のform情報をformDataに追加
