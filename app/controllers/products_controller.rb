@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :get_categories, only: [:index, :show]
   before_action :set_product, only: :show2
   before_action :check_user_login, only: [:new, :create, :destroy]
+  before_action :product_purchased, only: :update
 
   # 商品一覧画面の表示
   def index
@@ -174,18 +175,14 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
-
     # 登録済画像のidの配列を生成
     ids = @product.pictures.map{|image| image.id }
     # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
     exist_ids = registered_image_params[:ids].map(&:to_i)
     # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
     exist_ids.clear if exist_ids[0] == 0
-
     # 何かしらの画像があり、かつ画像以外の情報が更新成功した場合
     if (exist_ids.length != 0 || new_image_params[:pictures][0] != " ") && @product.update(update_product_params)
-
       # 登録済画像のうち削除ボタンをおした画像を削除
       unless ids.length == exist_ids.length
         # 削除する画像のidの配列を生成
@@ -272,4 +269,10 @@ class ProductsController < ApplicationController
     params.require(:new_images).permit({pictures: []})
   end
 
+  def product_purchased
+    @product = Product.find(params[:id])
+    if @product.purchase == true
+      redirect_to root_path
+    end
+  end
 end
