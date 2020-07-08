@@ -128,16 +128,7 @@ describe ProductsController do
         patch :update, params: { id: product.id, product: attributes_for(:product, category_id: category.id ), registered_images_ids: { ids: [ picture.id ], new_images: { pictures: [picture2] } } }
         expect(assigns(:product)).to eq product
       end
-      it '@productに正常な値が更新出来ていること' do
-        category = create(:category)
-        product = create(:product, user_id: user.id, category_id: category.id)
-        picture = create(:picture, product_id: product.id)
-        picture2 = build(:picture, product_id: product.id)
-        product2 = build(:product, id: product.id, user_id: user.id)
-        patch :update, params: { id: product.id, product: attributes_for(:product, category_id: category.id ), registered_images_ids: { ids: [ picture.id ], new_images: { pictures: [picture2] } } }
-        expect(assigns(:product)).to eq product
-      end
-      it '@productに正常な値が入っていること' do
+      it 'updateが正常に行われること' do
         category = create(:category)
         product = create(:product, user_id: user.id, category_id: category.id)
         picture = create(:picture, product_id: product.id)
