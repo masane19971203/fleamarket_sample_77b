@@ -1,9 +1,20 @@
 .user-products__items
   .user-products__items__title
-    = product.name
+    .user-products__items__title__name
+      %h1 商品名：
+      = product.name
+    .user-products__items__title__price
+      %h2 (価格：
+      %span
+        = product.price
+      %h2  円)
   .user-products__items__box
-    - if user_signed_in? && current_user.id == product.user_id
-      .user-products__items__box__edit
-        =link_to "編集", "#", class: "user-products__items__box__edit__btn"
-      .user-products__items__box__destroy
-        =link_to "削除", product_path(product.id), method: :delete, class: "user-products__items__box__destroy__btn"
+    - if user_signed_in? && current_user.id == product.user_id 
+      - unless product.purchase 
+        .user-products__items__box__edit
+          =link_to "編集", edit_product_path(product.id), class: "user-products__items__box__edit__btn"
+        .user-products__items__box__destroy
+          =link_to "削除", product_path(product.id), method: :delete, class: "user-products__items__box__destroy__btn"
+      - else 
+        .user-products__items__box__sold
+          この商品は他のユーザーが購入済みです
